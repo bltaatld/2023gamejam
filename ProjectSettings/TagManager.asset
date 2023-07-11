@@ -40,10 +40,16 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackgroundTilemap
+    uniqueID: 3862931115
+    locked: 0
+  - name: PropTilemap
+    uniqueID: 3560670671
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: MainCharacter
+  - name: MainYSort
     uniqueID: 1288050297
     locked: 0
   - name: SubCharacter
