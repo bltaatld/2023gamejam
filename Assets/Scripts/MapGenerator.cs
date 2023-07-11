@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using System.Collections.Generic;
 
 public class MapGenerator : MonoBehaviour{
@@ -7,51 +7,77 @@ public class MapGenerator : MonoBehaviour{
 	public int randomWalkCount;
 	public int randomWalkLength;
 
-	public GeneratableRoom[,] map;
-
 	public GameObject testObject;
 
+	public Vector2Int mapSize;
+	public Vector2Int startingPosition;
+
 	void Start(){
-		Generate();
+		if(randomWalkCount * randomWalkLength > size.x * size.y){
+			Debug.LogError("no");
+		}
+		else{
+			Generate();
+		}
 	}
 
 	public void Generate(){
+		var roomDesignation = GenerateRoomTypes();
+		var map = new GeneratableRoom[roomDesignation.GetLength(0), roomDesignation.GetLength(1)];
 
-		RoomType[,] roomDesignation = new RoomType[5, 5];
+		Room[,] rooms = new Room[x, y];
 
-		roomDesignation[2, 2] = RoomType.Normal;
+		for(int x = 0; x < roomDesignation.GetLength(0); x++){
+			for(int y = 0; y < roomDesignation.GetLength(1); y++){
+				if(roomDesignation[x, y] != RoomType.None){
 
-		for(int i = 0; i < randomWalkCount; i++){
-			Vector2Int walk = new Vector2Int(2, 2);
-			for(int j = 0; j < randomWalkLength; j++){
-				var directions = new List<Vector2Int>();
-				if(walk.x > 0){
-					directions.Add(new Vector2Int(-1, 0));
-				}
-				if(walk.y > 0){
-					directions.Add(new Vector2Int(0, -1));
-				}
-				if(walk.x < roomDesignation.GetLength(0) - 1){
-					directions.Add(new Vector2Int(1, 0));
-				}
-				if(walk.y < roomDesignation.GetLength(1) - 1){
-					directions.Add(new Vector2Int(0, 1));
-				}
+					List<GeneratableRoom> possibleRooms = new List<GeneratableRoom>();
 
-				walk += directions[Random.Range(0, directions.Count)];
-
-				if(roomDesignation[walk.x, walk.y] != RoomType.None){
-					j--;
-				}
-				else{
-					roomDesignation[walk.x, walk.y] = RoomType.Normal;
+					for(int i = 0; i < generatableRooms.Length; i++){
+						if(generatableRooms[i].roomType == roomDesignation[x, y] && 
+								generatableRooms[i].Spawnable(
+									x > 0 && roomDesignation[x - 1, y] != RoomType.None, 
+									y > 0 && roomDesignation[x, y - 1] != RoomType.None,
+									x < roomDesignation.GetLength(0) - 1 && roomDesignation[x + 1, y] != RoomType.None,
+									y < roomDesignation.GetLength(1) - 1 && roomDesignation[x, y + 1] != RoomType.None
+									)){
+							possibleRooms.Add(generatableRooms[i]);
+						}
+					}
+					rooms[x, y] = possibleRooms[Ramdon.Range(0, possibleRooms.Count)].Instantiate();
+					rooms[x, y].transform.position = new Vector2(x, y) * 10;
 				}
 			}
 		}
 
-		List<Vector2Int> oneEntranceRooms = new List<Vector2Int>();
-		List<Vector2Int> twoEntranceRooms = new List<Vector2Int>();
-		List<Vector2Int> otherRooms = new List<Vector2Int>();
+
+		for(int x = 0; x < roomDesignation.GetLength(0) - 1; x++){
+			for(int y = 0; y < roomDesignation.GetLength(1) - 1; y++){
+				var current = roomDesignation[x, y];
+				if(roomDesignation[x, y] != RoomType.None){
+					var east = roomDesignation[x + 1, y];
+					var north = roomDesignation[x, y + 1];
+					if(east != RoomType.None){
+						current.eastDoor.gameObject.SetActive(true);
+						east.westDoor.gameObject.SetActive(true);
+						Door.connect(current.eastDoor, east.westDoor);
+					}
+					if(north != RoomType.None){
+						Door.Connect(current.northDoor, north.southDoor);
+					}
+				}
+			}
+		}
+	}
+
+	private RoomType[,] GenerateRoomTypes(){
+		var roomDesignation = StartingRoomType();
+
+
+		List<Vector2Int>[] roomsByEntrance = new List<Vector2Int>[5];
+		for(int i = 0; i < roomsByEntrance.Length; i++){
+			roomsByEntrance[i] = new List<Vector2Int>();
+		}
 		for(int x = 0; x < roomDesignation.GetLength(0); x++){
 			for(int y = 0; y < roomDesignation.GetLength(1); y++){
 				int entrance = 0;
@@ -68,30 +94,16 @@ public class MapGenerator : MonoBehaviour{
 					entrance++;
 				}
 
-				if(entrance == 1){
-					oneEntranceRooms.Add(new Vector2Int(x, y));
-				}
-				else if(entrance == 2){
-					twoEntranceRooms.Add(new Vector2Int(x, y));
-				}
-				else{
-					otherRooms.Add(new Vector2Int(x, y));
-				}
+				roomsByEntrance[entrance].Add(new Vector2Int(x, y));
 			}
 		}
-
-		ShuffleList(oneEntranceRooms);
-		ShuffleList(twoEntranceRooms);
-		ShuffleList(otherRooms);
-
 		List<Vector2Int> outerRooms = new List<Vector2Int>();
-		outerRooms.AddRange(oneEntranceRooms);
-		outerRooms.AddRange(twoEntranceRooms);
-		outerRooms.AddRange(otherRooms);
-
-		map = new GeneratableRoom[roomDesignation.GetLength(0), roomDesignation.GetLength(1)];
-
-		var keyPositions = new Vector2Int[3];
+		for(int i = 0; i < roomsByEntrance.Length; i++){
+			ShuffleList(roomsByEntrance[i]);
+			outerRooms.AddRange(roomsByEntrance[i]);
+		}
+		
+		var keyPositions = new List<Vector2Int>;
 
 		var roomTypes = new List<RoomType>();
 
@@ -105,31 +117,55 @@ public class MapGenerator : MonoBehaviour{
 			var current = outerRooms[i];
 			roomDesignation[current.x, current.y] = roomTypes[i];
 		}
+	}
 
-		for(int x = 0; x < 5; x++){
-			for(int y = 0; y < 5; y++){
-				if(roomDesignation[x, y] != RoomType.None){
+	private RoomType[,] StartingRoomType(){
+		RoomType[,] roomDesignation = new RoomType[5, 5];
+		
 
-					List<GeneratableRoom> possibleRooms = new List<GeneratableRoom>();
+		for(int x = 0; x < roomDesignation.GetLength(0); x++){
+			for(int y = 0; y < roomDesignation.GetLength(1); y++){
+				roomDesignation[x, y] = RoomType.Nome;
+			}
+		}
+		roomDesignation[2, 2] = RoomType.Normal;
 
-					for(int i = 0; i < generatableRooms.Length; i++){
-						if(generatableRooms[i].roomType == roomDesignation[x, y] && 
-								generatableRooms[i].Spawnable(
-									x > 0 && roomDesignation[x - 1, y] != RoomType.None, 
-									y > 0 && roomDesignation[x, y - 1] != RoomType.None,
-									x < roomDesignation.GetLength(0) - 1 && roomDesignation[x + 1, y] != RoomType.None,
-									y < roomDesignation.GetLength(1) - 1 && roomDesignation[x, y + 1] != RoomType.None
-									)){
-							possibleRooms.Add(generatableRooms[i]);
-						}
-					}
-					//var instantiated = possibleRooms[Random.Range(0, possibleRooms.Count)].Instantiate();
-					//instantiated.transform.position = new Vector2(x, y);
+		return roomDesignation;
+	}
+
+	private bool[,] RandomWalk(int randomWalkCount, int randomWalkLength){
+		bool[,] roomLayout = new bool[size.x, size.y];
+		roomLayout[startingPosition.x, startingPosition.y] = true;
+		
+		for(int i = 0; i < randomWalkCount; i++){
+			Vector2Int walk = startingPosition;
+			for(int j = 0; j < randomWalkLength; j++){
+
+				var directions = new List<Vector2Int>();
+				if(walk.x < roomDesignation.GetLength(0) - 1){
+					directions.Add(new Vector2Int(1, 0));
+				}
+				if(walk.x > 0){
+					directions.Add(new Vector2Int(-1, 0));
+				}
+				if(walk.y < roomDesignation.GetLength(1) - 1){
+					directions.Add(new Vector2Int(0, 1));
+				}
+				if(walk.y > 0){
+					directions.Add(new Vector2Int(0, -1));
+				}
+
+				walk += directions[Random.Range(0, directions.Count)];
+
+				if(roomDesignation[walk.x, walk.y] != RoomType.None){
+					j--;
+				}
+				else{
+					roomDesignation[walk.x, walk.y] = RoomType.Normal;
 				}
 			}
 		}
 	}
-	
 
 	private void ShuffleList<T>(List<T> list){
 		for(int i = 0; i < list.Count; i++){
@@ -141,3 +177,4 @@ public class MapGenerator : MonoBehaviour{
 	}
 }
 
+*/
