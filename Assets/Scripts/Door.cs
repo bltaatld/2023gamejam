@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class Door : MonoBehaviour{
-	pubilc Door targetDoor;
+	public Door targetDoor;
 	public Room room;
 	public static void Connect(Door a, Door b){
 		a.gameObject.SetActive(true);
