@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingEnemy : MonoBehaviour
+public class DashEnemy : MonoBehaviour
 {
     public Transform player;
     public GameObject PlayerMove;
     public Rigidbody2D rigid;
 
     [SerializeField] TriggerTracker Playertrigger;
-    
+
     public float bounceForce = 5f;
     public float currentmoveSpeed;
 
     public bool isHit;
-    public bool isFoundPlayer;
+    public bool isFoundPlayer = false;
 
     void FixedUpdate()
     {
-        if (!isHit)
+        if (Playertrigger.triggered)
+        {
+            isFoundPlayer = true;
+        }
+
+        if (isFoundPlayer)
         {
             Vector2 direction = (player.position - transform.position).normalized;
             rigid.AddForce(direction * currentmoveSpeed);
@@ -47,4 +52,5 @@ public class FlyingEnemy : MonoBehaviour
     {
         isFoundPlayer = false;
     }
+
 }
