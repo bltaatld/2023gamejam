@@ -9,6 +9,10 @@ public class Projectile : MonoBehaviour{
 	private Transform homingTarget;
 	private new Rigidbody2D rigidbody2D;
 	private SpriteRenderer spriteRenderer;
+	public float homingForce;
+	public bool piercing;
+	private bool hit = false;
+	public int damage;
 
 	void Awake(){
 		rigidbody2D = GetComponent<Rigidbody2D>();
@@ -30,12 +34,29 @@ public class Projectile : MonoBehaviour{
 
 	void FixedUpdate(){
 		if(homing && homingTarget != null){
-			rigidbody2D.AddForce((transform.position - homingTarget.position) * Time.fixedDeltaTime);
+			rigidbody2D.AddForce(((Vector2)homingTarget.position - (Vector2)transform.position).normalized * Time.fixedDeltaTime * homingForce);
 		}
 	}
 
 	private IEnumerator Decay(){
 		yield return new WaitForSeconds(lifetime);
 		Destroy(gameObject);
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		if(hit){
+			return;
+		}
+		if(other.CompareTag("Enemy")){
+			Enemy enemy = other.GetComponent<Enemy>();
+			if(enemy.dead){
+				return;
+			}
+			if(!piercing){
+				hit = true;
+				Destroy(gameObject);
+			}
+			enemy.health -= damage;
+		}
 	}
 }

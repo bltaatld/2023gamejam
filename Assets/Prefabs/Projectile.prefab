@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: -7996999629672645924}
   - component: {fileID: 1693003577278927274}
   - component: {fileID: 4131209537811060383}
+  - component: {fileID: 6541912274785379279}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: CharacterProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 10
   lifetime: 1
-  homing: 0
+  homing: 1
+  homingForce: 4500
 --- !u!95 &1693003577278927274
 Animator:
   serializedVersion: 5
@@ -158,3 +160,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 720
+--- !u!58 &6541912274785379279
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4730337020669982071}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.15625

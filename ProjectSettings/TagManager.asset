@@ -9,6 +9,7 @@ TagManager:
   - Map
   - Hearts
   - Enemy
+  - CharacterProjectile
   layers:
   - Default
   - TransparentFX

@@ -34,7 +34,7 @@ public class MapGenerator : MonoBehaviour{
 					if(!(x == startingPosition.x && y == startingPosition.y)){
 						randomIndex = Random.Range(0, generatableRooms.Length);
 					}
-					var instantiated = Instantiate(generatableRooms[randomIndex], position, Quaternion.identity);
+					var instantiated = Instantiate(generatableRooms[randomIndex], position, Quaternion.identity, transform);
 					rooms[x, y] = instantiated.GetComponent<Room>();
 				}
 			}

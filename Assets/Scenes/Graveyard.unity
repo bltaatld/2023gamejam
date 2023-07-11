@@ -132,40 +132,40 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.size
-      value: 11
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.data[0]
       value: 
-      objectReference: {fileID: 6098868296050204896, guid: 70147d024a5f9924faf67064b373de59, type: 3}
+      objectReference: {fileID: 6098868296050204896, guid: 6e15a0c148ab03b46a8dd73c90a5470c, type: 3}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.data[1]
       value: 
-      objectReference: {fileID: 6098868296050204896, guid: 5457bd42c0cf1b14f8e005772dd2c88e, type: 3}
+      objectReference: {fileID: 6098868296050204896, guid: e4234c522d88c284c907a9a2c1716784, type: 3}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.data[2]
       value: 
-      objectReference: {fileID: 6098868296050204896, guid: b25d1d6c8fb1d124f8e68ab214f459e5, type: 3}
+      objectReference: {fileID: 6098868296050204896, guid: d9c604304973b1148896617d08e934c4, type: 3}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.data[3]
       value: 
-      objectReference: {fileID: 6098868296050204896, guid: ea285c7f143931f489ed522855c803b2, type: 3}
+      objectReference: {fileID: 6098868296050204896, guid: 1b8a6d3ce346da14eafb342ff5a15ec3, type: 3}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.data[4]
       value: 
-      objectReference: {fileID: 6098868296050204896, guid: 86b3bbc3b5a80a845a377c1df8a1779f, type: 3}
+      objectReference: {fileID: 6098868296050204896, guid: 02b99bb4e9dc15545b9c0fb046566d94, type: 3}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.data[5]
       value: 
-      objectReference: {fileID: 6098868296050204896, guid: d700f8c00820f1718b91957b23fbe3ae, type: 3}
+      objectReference: {fileID: 6098868296050204896, guid: f2ff08d0ca3090642b35f5d6fdc21ffb, type: 3}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.data[6]
       value: 
-      objectReference: {fileID: 6098868296050204896, guid: f534712c4bea594498e86570135e2cc3, type: 3}
+      objectReference: {fileID: 6098868296050204896, guid: 13d81f6138769ce47a4d393e2fe5f2e9, type: 3}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.data[7]
       value: 
-      objectReference: {fileID: 6098868296050204896, guid: bf4e6120826a98c44ad637bc77135545, type: 3}
+      objectReference: {fileID: 6098868296050204896, guid: 6593e25759af63e4b9e08254d54476f9, type: 3}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.data[8]
       value: 

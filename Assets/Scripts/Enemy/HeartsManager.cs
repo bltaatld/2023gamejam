@@ -17,6 +17,7 @@ public class HeartsManager : MonoBehaviour{
 	}
 
 	public void SetHearts(int health, int maxHealth){
+		Debug.Log(health);
 		var heartsNeeded = (maxHealth + 1) / 2;
 		var heartsAdding = heartsNeeded - hearts.Count;
 		for(int i = 0; i < heartsAdding; i++){
@@ -26,7 +27,7 @@ public class HeartsManager : MonoBehaviour{
 		}
 		for(int i = 0; i < hearts.Count; i++){
 			Sprite sprite = null;
-			if(i * 2 < health){
+			if(i * 2 + 1 < health){
 				sprite = fullHeartSprite;
 			}
 			else if(i * 2 + 1 == health){

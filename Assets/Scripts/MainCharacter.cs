@@ -2,10 +2,19 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class MainCharacter : MoveCharacter{
-	public int maxHealth = 6;
+	public int startingHealth;
+	public int maxHealth{
+		get => _maxHealth;
+		set{
+			_maxHealth = value;
+			UpdateHealthUI();
+		}
+	}
+	private int _maxHealth;
 	public int health{
 		get => _health;
 		set{
+			Debug.Log("health set");
 			_health = value;
 			if(health <= 0){
 				Gameover();
@@ -24,6 +33,7 @@ public class MainCharacter : MoveCharacter{
 		animator = GetComponent<Animator>();
 		subCharacter = GameObject.FindGameObjectWithTag("SubCharacter").GetComponent<SubCharacter>();
 	}
+
 	void Start(){
 		health = maxHealth;
 	}
@@ -33,6 +43,7 @@ public class MainCharacter : MoveCharacter{
 	}
 
 	void Gameover(){
+		Debug.Log("Gameover");
 	}
 
 	private void UpdateHealthUI(){
