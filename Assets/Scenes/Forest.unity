@@ -178,6 +178,22 @@ PrefabInstance:
       propertyPath: generatableRooms.Array.data[10]
       value: 
       objectReference: {fileID: 6098868296050204896, guid: 47963b33651d2c94fad5d0d925ede59c, type: 3}
+    - target: {fileID: 8997792569347305391, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: orthographic size
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997792569347305391, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0.00066137564
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997792569347305391, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.56878304
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997792569347305391, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.60301507
+      objectReference: {fileID: 0}
     - target: {fileID: 8997792569566275360, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: m_Name
       value: MapSet
@@ -188,15 +204,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8997792569566275361, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.871129
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997792569566275361, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.8672123
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997792569566275361, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.7906587
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997792569566275361, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: m_LocalRotation.w

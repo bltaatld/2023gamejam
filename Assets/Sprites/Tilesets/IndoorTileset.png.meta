@@ -1121,6 +1121,131 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: IndoorTileset_45
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 48
+        width: 12
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: -16}
+        - {x: -6, y: -12}
+        - {x: 6, y: -12}
+        - {x: 6, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eac53de6f6c4b3d7860f5a2092b80ff
+      internalID: -381243806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IndoorTileset_46
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 66
+        width: 46
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -23, y: -11.5}
+        - {x: -23, y: -10.5}
+        - {x: 23, y: -10.5}
+        - {x: 23, y: -11.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d192cb54fffd9c787b26b198a1441a
+      internalID: 933432071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IndoorTileset_47
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 48
+        width: 24
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12, y: -8}
+        - {x: -12, y: -4}
+        - {x: 12, y: -4}
+        - {x: 12, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0d37550c8206364a376bd690cb7ace
+      internalID: 1705908689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IndoorTileset_48
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 34
+        width: 10
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: -11.5}
+        - {x: -5, y: -10.5}
+        - {x: 5, y: -10.5}
+        - {x: 5, y: -11.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15568972a4f6cd546891f2b9e59b9ba4
+      internalID: 1591664599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IndoorTileset_49
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 64
+        width: 12
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -6, y: -8}
+        - {x: -6, y: -4}
+        - {x: 6, y: -4}
+        - {x: 6, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69207ed1477fa013fa4183b0437fa5d6
+      internalID: 239209821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1172,6 +1297,11 @@ TextureImporter:
       IndoorTileset_42: 2011356698
       IndoorTileset_43: -2033225728
       IndoorTileset_44: 801608961
+      IndoorTileset_45: -381243806
+      IndoorTileset_46: 933432071
+      IndoorTileset_47: 1705908689
+      IndoorTileset_48: 1591664599
+      IndoorTileset_49: 239209821
       IndoorTileset_5: -2050218322
       IndoorTileset_6: -363165887
       IndoorTileset_7: -2038051783

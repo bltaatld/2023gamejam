@@ -50,6 +50,9 @@ TagManager:
   - name: PropTilemap
     uniqueID: 3560670671
     locked: 0
+  - name: ForegroundTilemap
+    uniqueID: 4033834221
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
