@@ -14,6 +14,8 @@ public class SubCharacter : MoveCharacter{
 	public float attackDamage;
 	public GameObject attackProjectile;
 	private float lastAttack;
+	public bool doubleshot;
+	public bool tripleshot;
 
 	protected override void Awake(){
 		base.Awake();
@@ -50,15 +52,34 @@ public class SubCharacter : MoveCharacter{
 	}
 
 	private void Shoot(){
+		DoubleShootDirection(0f);
+		if(tripleshot){
+			DoubleShootDirection(-15f);
+			DoubleShootDirection(15f);
+		}
+
 		var mousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		var instantiated = Instantiate(attackProjectile);
-		instantiated.transform.position = transform.position;
-
-		instantiated.transform.right = mousePosition - (Vector2)instantiated.transform.position;
-
 		var recoil= ((Vector2)transform.position - mousePosition).normalized * attackRecoil;
 
 		AddForce(recoil);
+	}
+
+	private void DoubleShootDirection(float angle){
+		if(doubleshot){
+			ShootDirection(angle, 0.1f);
+			ShootDirection(angle, -0.1f);
+		}
+		else{
+			ShootDirection(angle, 0f);
+		}
+	}
+	private void ShootDirection(float angle, float offset){
+		var mousePosition = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		var instantiated = Instantiate(attackProjectile);
+		instantiated.transform.position = transform.position;
+		instantiated.transform.right = mousePosition - (Vector2)instantiated.transform.position;
+		instantiated.transform.Rotate(0, 0, angle);
+		instantiated.transform.Translate(0, offset, 0);
 	}
 }
 

@@ -7,6 +7,7 @@ TagManager:
   - MainCharacter
   - SubCharacter
   - Map
+  - Hearts
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - UI
   - MainCharacter
   - SubCharacter
-  - 
+  - Obstacle
   - 
   - 
   - 
@@ -53,9 +54,12 @@ TagManager:
   - name: MainYSort
     uniqueID: 1288050297
     locked: 0
-  - name: SubCharacter
-    uniqueID: 3009658805
+  - name: Projectile
+    uniqueID: 2999334205
     locked: 0
   - name: SubCharacterRangeIndicator
     uniqueID: 4204238317
+    locked: 0
+  - name: SubCharacter
+    uniqueID: 3009658805
     locked: 0

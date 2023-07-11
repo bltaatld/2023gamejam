@@ -3,11 +3,10 @@ using System.Collections.Generic;
 
 public class MapGenerator : MonoBehaviour{
 
-	public GeneratableRoom[] generatableRooms;
+	public GameObject[] generatableRooms;
 	public int randomWalkCount;
 	public int randomWalkLength;
 
-	public GameObject testRoom;
 
 	public Vector2Int mapSize;
 	public Vector2 roomGap;
@@ -31,7 +30,7 @@ public class MapGenerator : MonoBehaviour{
 				var position = new Vector2(current.x * roomGap.x, current.y * roomGap.y);
 
 				if(layout[x, y]){
-					var instantiated = Instantiate(testRoom, position, Quaternion.identity);
+					var instantiated = Instantiate(generatableRooms[Random.Range(0, generatableRooms.Length)], position, Quaternion.identity);
 					rooms[x, y] = instantiated.GetComponent<Room>();
 				}
 			}
