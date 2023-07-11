@@ -30,7 +30,11 @@ public class MapGenerator : MonoBehaviour{
 				var position = new Vector2(current.x * roomGap.x, current.y * roomGap.y);
 
 				if(layout[x, y]){
-					var instantiated = Instantiate(generatableRooms[Random.Range(0, generatableRooms.Length)], position, Quaternion.identity);
+					int randomIndex = 0;
+					if(!(x == startingPosition.x && y == startingPosition.y)){
+						randomIndex = Random.Range(0, generatableRooms.Length);
+					}
+					var instantiated = Instantiate(generatableRooms[randomIndex], position, Quaternion.identity);
 					rooms[x, y] = instantiated.GetComponent<Room>();
 				}
 			}
