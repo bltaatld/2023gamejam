@@ -15,11 +15,13 @@ public class MainCharacter : MoveCharacter{
 	}
 	private int _health;
 	private Animator animator;
+	private SubCharacter subCharacter;
 
 	protected override void Awake(){
 		base.Awake();
 		health = maxHealth;
 		animator = GetComponent<Animator>();
+		subCharacter = GameObject.FindGameObjectWithTag("SubCharacter").GetComponent<SubCharacter>();
 	}
 
 	void FixedUpdate(){
@@ -57,6 +59,11 @@ public class MainCharacter : MoveCharacter{
 				}
 			}
 		}
+	}
+
+	public void MoveTo(Vector2 position){
+		transform.position = position;
+		subCharacter.transform.position = position;
 	}
 }
 

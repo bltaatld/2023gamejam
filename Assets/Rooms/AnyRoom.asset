@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae66a5e2899f6c9ebe8e106dfceb80d, type: 3}
   m_Name: AnyRoom
   m_EditorClassIdentifier: 
-  roomGameObject: {fileID: 1421080097660778915, guid: ee9f271d07b8d7049be253e9586fb42e, type: 3}
+  roomGameObject: {fileID: 6098868296050204896, guid: 98060c043b8c3214990bc161c451868b, type: 3}
   roomType: 3
   eastDoor: 0
   westDoor: 0
