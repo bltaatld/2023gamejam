@@ -8,6 +8,7 @@ TagManager:
   - SubCharacter
   - Map
   - Hearts
+  - Enemy
   layers:
   - Default
   - TransparentFX

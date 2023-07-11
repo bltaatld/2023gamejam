@@ -687,6 +687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Dash
       objectReference: {fileID: 0}
+    - target: {fileID: 3039721359745961713, guid: 0e4a0ff94575a124aa3fb5266e503f2b, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3039721359745961722, guid: 0e4a0ff94575a124aa3fb5266e503f2b, type: 3}
       propertyPath: player
       value: 
@@ -759,6 +763,10 @@ PrefabInstance:
     - target: {fileID: 7168060062177840637, guid: 9e0d9c68c2fdca34e9fde893b148caa6, type: 3}
       propertyPath: m_Name
       value: Enemy_fly
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168060062177840637, guid: 9e0d9c68c2fdca34e9fde893b148caa6, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7168060062177840639, guid: 9e0d9c68c2fdca34e9fde893b148caa6, type: 3}
       propertyPath: m_RootOrder

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashEnemy : MonoBehaviour
+public class DashEnemy : Enemy
 {
     public Transform player;
     public GameObject PlayerMove;
