@@ -15,11 +15,17 @@ public class MainCharacter : MoveCharacter{
 	}
 	private int _health;
 	private Animator animator;
+	private SubCharacter subCharacter;
+	public bool doubleshot;
+	public bool tripleshot;
 
 	protected override void Awake(){
 		base.Awake();
-		health = maxHealth;
 		animator = GetComponent<Animator>();
+		subCharacter = GameObject.FindGameObjectWithTag("SubCharacter").GetComponent<SubCharacter>();
+	}
+	void Start(){
+		health = maxHealth;
 	}
 
 	void FixedUpdate(){
@@ -27,11 +33,10 @@ public class MainCharacter : MoveCharacter{
 	}
 
 	void Gameover(){
-
 	}
 
 	private void UpdateHealthUI(){
-
+		GameObject.FindGameObjectWithTag("Hearts").GetComponent<HeartsManager>().SetHearts(health, maxHealth);
 	}
 
 	void Update(){
@@ -57,6 +62,11 @@ public class MainCharacter : MoveCharacter{
 				}
 			}
 		}
+	}
+
+	public void MoveTo(Vector2 position){
+		transform.position = position;
+		subCharacter.transform.position = position;
 	}
 }
 
