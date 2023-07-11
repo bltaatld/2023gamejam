@@ -36,7 +36,7 @@ public class MainCharacter : MoveCharacter{
 	}
 
 	private void UpdateHealthUI(){
-		GameObject.FindGameObjectWithTag("Hearts").GetComponent<HeartsManager>().SetHearts(health, maxHealth);
+		//GameObject.FindGameObjectWithTag("Hearts").GetComponent<HeartsManager>().SetHearts(health, maxHealth);
 	}
 
 	void Update(){
