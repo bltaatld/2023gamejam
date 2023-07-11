@@ -10,39 +10,31 @@ public class FlyingEnemy : MonoBehaviour
 
     [SerializeField] TriggerTracker Playertrigger;
     
-    public float moveSpeed = 5f;
     public float bounceForce = 5f;
-    public float enemyAP = 5f;
     public float currentmoveSpeed;
-
-    public float followTimer;
 
     public bool isHit;
     public bool isFoundPlayer;
 
-    void Update()
+    void FixedUpdate()
     {
-        followTimer += Time.deltaTime;
-
-        currentmoveSpeed = moveSpeed;
-
-        if (Playertrigger.triggered)
-        {
-            Vector2 direction = (transform.position - player.position).normalized;
-            rigid.AddForce(direction * bounceForce, ForceMode2D.Impulse);
-            isHit = true;
-        }
-
-        if (!Playertrigger.triggered)
-        {
-            isHit = false;
-        }
-
-
         if (!isHit)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, currentmoveSpeed * Time.deltaTime);
+            Vector2 direction = (player.position - transform.position).normalized;
+            rigid.AddForce(direction * currentmoveSpeed);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Vector2 direction = (transform.position - player.position).normalized;
+        rigid.AddForce(direction * bounceForce, ForceMode2D.Impulse);
+        isHit = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isHit = false;
     }
 
     private void OnDisable()

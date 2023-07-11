@@ -423,11 +423,10 @@ MonoBehaviour:
   PlayerMove: {fileID: 86891709}
   rigid: {fileID: 538224737}
   Playertrigger: {fileID: 538224738}
-  moveSpeed: 1.5
-  bounceForce: 50
+  moveSpeed: 200
+  bounceForce: 3
   enemyAP: 5
-  currentmoveSpeed: 0
-  followTimer: 0
+  currentmoveSpeed: 1
   isHit: 0
   isFoundPlayer: 0
 --- !u!50 &538224737
@@ -442,15 +441,15 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
-  m_LinearDrag: 10
-  m_AngularDrag: 10
+  m_Mass: 0.5
+  m_LinearDrag: 2
+  m_AngularDrag: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &538224738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,7 +473,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.025763988, y: 0}
@@ -777,6 +776,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4127778670158728468, guid: 1db62d03ead0a3e8d8061574780777c5, type: 3}
+      propertyPath: moveForce
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4127778670485597441, guid: 1db62d03ead0a3e8d8061574780777c5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -828,6 +831,18 @@ PrefabInstance:
     - target: {fileID: 4127778670485597446, guid: 1db62d03ead0a3e8d8061574780777c5, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127778671016613618, guid: 1db62d03ead0a3e8d8061574780777c5, type: 3}
+      propertyPath: moveForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298314135314360879, guid: 1db62d03ead0a3e8d8061574780777c5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298314135314360879, guid: 1db62d03ead0a3e8d8061574780777c5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1db62d03ead0a3e8d8061574780777c5, type: 3}
