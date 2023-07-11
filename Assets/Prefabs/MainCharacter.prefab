@@ -207,9 +207,10 @@ MonoBehaviour:
   downKeyCode: 115
   cursorMoveKeyCode: 0
   movementTargetDistance: 0
-  startingHealth: 0
+  startingHealth: 6
   doubleshot: 0
   tripleshot: 0
+  immuneTime: 1
 --- !u!50 &21474112691750787
 Rigidbody2D:
   serializedVersion: 4

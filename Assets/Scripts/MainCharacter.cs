@@ -27,6 +27,9 @@ public class MainCharacter : MoveCharacter{
 	private SubCharacter subCharacter;
 	public bool doubleshot;
 	public bool tripleshot;
+	public float immuneTime;
+	private float immuneTimer;
+	public bool immune => immuneTimer > immuneTime;
 
 	protected override void Awake(){
 		base.Awake();
@@ -35,7 +38,9 @@ public class MainCharacter : MoveCharacter{
 	}
 
 	void Start(){
+		maxHealth = startingHealth;
 		health = maxHealth;
+		UpdateHealthUI();
 	}
 
 	void FixedUpdate(){
@@ -47,7 +52,7 @@ public class MainCharacter : MoveCharacter{
 	}
 
 	private void UpdateHealthUI(){
-		//GameObject.FindGameObjectWithTag("Hearts").GetComponent<HeartsManager>().SetHearts(health, maxHealth);
+		GameObject.FindGameObjectWithTag("Hearts").GetComponent<HeartsManager>().SetHearts(health, maxHealth);
 	}
 
 	void Update(){
@@ -73,11 +78,17 @@ public class MainCharacter : MoveCharacter{
 				}
 			}
 		}
+		immuneTimer -= Time.deltaTime;
+		immuneTimer = Mathf.Max(0f, immuneTimer);
 	}
 
 	public void MoveTo(Vector2 position){
 		transform.position = position;
 		subCharacter.transform.position = position;
 	}
-}
 
+	public void Damage(int damage){
+		health -= damage;
+		immuneTimer = immuneTime;
+	}
+}

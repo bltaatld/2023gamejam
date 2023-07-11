@@ -30,8 +30,7 @@ public class Enemy : MonoBehaviour{
 
 	protected virtual void OnCollisionEnter2D(Collision2D collision){
 		if(collision.collider.CompareTag("MainCharacter")){
-			Debug.Log("Oncoasdfj");
-			collision.collider.GetComponent<MainCharacter>().health--;
+			collision.collider.GetComponent<MainCharacter>().Damage(1);
 		}
 	}
 }
