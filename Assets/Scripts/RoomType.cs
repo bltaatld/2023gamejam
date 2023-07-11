@@ -1,3 +1,3 @@
 public enum RoomType{
-	Treasure, Shop, Pond, Normal, None
+	None, Normal, Treasure, Shop, Pond
 }
