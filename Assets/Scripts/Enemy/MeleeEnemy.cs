@@ -7,6 +7,7 @@ public class MeleeEnemy : Enemy
     public Transform player;
     public GameObject PlayerMove;
     public Rigidbody2D rigid;
+    public SpriteRenderer sprite;
     public Animator anim;
 
     [SerializeField] TriggerTracker PlayerTrigger;
@@ -19,6 +20,13 @@ public class MeleeEnemy : Enemy
 
     public bool isHit;
     public bool isFoundPlayer;
+
+    protected override void Start()
+    {
+        base.Start();
+        player = GameObject.FindGameObjectWithTag("MainCharacter").transform;
+        PlayerMove = GameObject.FindGameObjectWithTag("MainCharacter").gameObject;
+    }
 
     void FixedUpdate()
     {
@@ -53,11 +61,13 @@ public class MeleeEnemy : Enemy
         {
             // 플레이어가 상대적으로 왼쪽에 있는 경우
             GetComponent<SpriteRenderer>().flipX = false;
+            sprite.flipX = false;
         }
         else
         {
             // 플레이어가 상대적으로 오른쪽에 있는 경우
             GetComponent<SpriteRenderer>().flipX = true;
+            sprite.flipX = true;
         }
     }
 

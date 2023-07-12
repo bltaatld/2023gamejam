@@ -353,9 +353,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  deathParticle: {fileID: 4480551625138150364, guid: 98dde16755c94bb958ff9f980249f3b9, type: 3}
   player: {fileID: 0}
   PlayerMove: {fileID: 0}
   rigid: {fileID: 4054406961085834558}
+  sprite: {fileID: 4054406959591665662}
   anim: {fileID: 4054406961085834559}
   PlayerTrigger: {fileID: 4054406959591665661}
   AttackTrigger: {fileID: 4054406960103261718}

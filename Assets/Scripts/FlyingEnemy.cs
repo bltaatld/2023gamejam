@@ -16,9 +16,11 @@ public class FlyingEnemy : Enemy
     public bool isHit;
     public bool isFoundPlayer;
 
-    protected override void Start(){
+    protected override void Start()
+    {
         base.Start();
         player = GameObject.FindGameObjectWithTag("MainCharacter").transform;
+        PlayerMove = GameObject.FindGameObjectWithTag("MainCharacter").gameObject;
     }
 
     void FixedUpdate()

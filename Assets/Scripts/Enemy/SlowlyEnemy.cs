@@ -20,8 +20,14 @@ public class SlowlyEnemy : Enemy
     public bool isFoundPlayer;
     public bool isSlow;
 
-    private void Start()
+
+    protected override void Start()
     {
+        base.Start();
+        player = GameObject.FindGameObjectWithTag("MainCharacter").transform;
+        PlayerMove = GameObject.FindGameObjectWithTag("MainCharacter").gameObject;
+        playerValue = GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<MoveCharacter>();
+
         playerMoveSpeed = playerValue.moveForce;
     }
 
