@@ -20,6 +20,13 @@ public class BoomEnemy : Enemy
 
     public Animator anim;
 
+    protected override void Start()
+    {
+        base.Start();
+        player = GameObject.FindGameObjectWithTag("MainCharacter").transform;
+        PlayerMove = GameObject.FindGameObjectWithTag("MainCharacter").gameObject;
+    }
+
     void FixedUpdate()
     {
         if (!isHit)

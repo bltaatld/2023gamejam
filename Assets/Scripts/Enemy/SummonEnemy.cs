@@ -9,6 +9,8 @@ public class SummonEnemy : Enemy
     public Rigidbody2D rigid;
 
     public GameObject prefabToInstantiate;
+    public Animator anim;
+    public SpriteRenderer sprite;
 
     public float bounceForce = 5f;
     public float currentmoveSpeed;
@@ -20,6 +22,12 @@ public class SummonEnemy : Enemy
     public bool isFoundPlayer;
     public bool isSlow;
 
+    protected override void Start()
+    {
+        base.Start();
+        player = GameObject.FindGameObjectWithTag("MainCharacter").transform;
+        PlayerMove = GameObject.FindGameObjectWithTag("MainCharacter").gameObject;
+    }
 
     void FixedUpdate()
     {
@@ -33,7 +41,7 @@ public class SummonEnemy : Enemy
 
         if (instantiateTimer >= instantiateDelay)
         {
-            InstantiatePrefabInRandomPosition();
+            anim.SetTrigger("IsSummon");
             instantiateTimer = 0f;
         }
 
@@ -42,15 +50,17 @@ public class SummonEnemy : Enemy
         {
             // 플레이어가 상대적으로 왼쪽에 있는 경우
             GetComponent<SpriteRenderer>().flipX = false;
+            sprite.flipX = false;
         }
         else
         {
             // 플레이어가 상대적으로 오른쪽에 있는 경우
             GetComponent<SpriteRenderer>().flipX = true;
+            sprite.flipX = true;
         }
     }
 
-    private void InstantiatePrefabInRandomPosition()
+    public void InstantiatePrefabInRandomPosition()
     {
         // 원형 반경 내의 랜덤한 위치 계산
         Vector2 randomPosition = Random.insideUnitCircle.normalized * spawnRadius;

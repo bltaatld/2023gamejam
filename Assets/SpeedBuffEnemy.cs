@@ -23,6 +23,7 @@ public class SpeedBuffEnemy : Enemy
     {
         base.Start();
         player = GameObject.FindGameObjectWithTag("MainCharacter").transform;
+        PlayerMove = GameObject.FindGameObjectWithTag("MainCharacter").gameObject;
     }
 
     void FixedUpdate()

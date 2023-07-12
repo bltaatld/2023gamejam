@@ -16,6 +16,13 @@ public class DashEnemy : Enemy
     public bool isHit;
     public bool isFoundPlayer = false;
 
+    protected override void Start()
+    {
+        base.Start();
+        player = GameObject.FindGameObjectWithTag("MainCharacter").transform;
+        PlayerMove = GameObject.FindGameObjectWithTag("MainCharacter").gameObject;
+    }
+
     void FixedUpdate()
     {
         if (Playertrigger.triggered)
