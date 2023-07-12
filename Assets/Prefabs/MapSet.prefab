@@ -281,10 +281,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterSet
       objectReference: {fileID: 0}
-    - target: {fileID: 4127778671016613618, guid: 1db62d03ead0a3e8d8061574780777c5, type: 3}
-      propertyPath: tripleshot
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1db62d03ead0a3e8d8061574780777c5, type: 3}
 --- !u!4 &8997792569745989172 stripped

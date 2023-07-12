@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1295633091
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 816076127, guid: 87e59a33213adc0ddb0ef1de89dcecf2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -124,11 +124,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 10
   lifetime: 1
-  homing: 1
+  homing: 0
   homingForce: 4500
   piercing: 0
   damage: 1
   endParticle: {fileID: 4480551625138150364, guid: 6c0bf756d1f07421ea162c721b3674c2, type: 3}
+  explosion: {fileID: 3352137718826502870, guid: a73f18fbf42fea55f9d77a6fa06a94d8, type: 3}
+  explosive: 0
+  splitProjectile: {fileID: 4730337020669982071}
+  split: 0
 --- !u!95 &1693003577278927274
 Animator:
   serializedVersion: 5

@@ -19,6 +19,7 @@ public class MainCharacter : MoveCharacter{
 			if(health <= 0){
 				Gameover();
 			}
+			_health = Mathf.Min(health, maxHealth);
 			UpdateHealthUI();
 		}
 	}
@@ -26,6 +27,14 @@ public class MainCharacter : MoveCharacter{
 	private Animator animator;
 	public SubCharacter subCharacter;
 	private SpriteRenderer spriteRenderer;
+	
+	[Header("Contact")]
+	public bool contactDeath;
+	public bool contactExplosion;
+	public GameObject contactExplosionPrefab;
+	[Header("Vampirism")]
+	public bool vampirism;
+	public float vampirismChance;
 
 	[Header("Immunity")]
 	public float damageImmuneDuration;
@@ -34,16 +43,23 @@ public class MainCharacter : MoveCharacter{
 	[HideInInspector] public bool immune;
 	[SerializeField] float immuneBlinkInterval;
 	[SerializeField] float intenseImmuneBlinkInterval;
+	private IEnumerator immuneCoroutine;
 
+	[Header("Shielding")]
+	public bool roomEnterShielding;
+	private bool shielded;
 	[Header("RoomEnterImmune")]
 	public float roomEnterImmuneDuration = 5f;
 	public bool roomEnterImmune;
+
+	private ColorPulse colorPulse;
 
 	protected override void Awake(){
 		base.Awake();
 		animator = GetComponent<Animator>();
 		subCharacter = GameObject.FindGameObjectWithTag("SubCharacter").GetComponent<SubCharacter>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
+		colorPulse = GetComponent<ColorPulse>();
 	}
 
 	void Start(){
@@ -95,16 +111,22 @@ public class MainCharacter : MoveCharacter{
 	}
 
 	public void Damage(int damage){
-		health -= damage;
+		if(shielded){
+			shielded = false;
+			colorPulse.Pulse(Color.yellow, 1f);
+		}
+		else{
+			health -= damage;
+		}
+		if(contactExplosion){
+			Instantiate(contactExplosionPrefab, transform.position, Quaternion.identity);
+		}
 		TemporaryImmune(damageImmuneDuration);
 	}
 
 	public void TemporaryImmune(float duration){
-		Debug.Log(damageImmuneDuration);
-		Debug.Log(duration);
 		IEnumerator TemporaryImmuneCoroutine(){
 			immune = true;
-			Debug.Log("A");
 			bool inBlinkColor = false;
 			while(duration > 0){
 				inBlinkColor = !inBlinkColor;
@@ -119,41 +141,83 @@ public class MainCharacter : MoveCharacter{
 				yield return new WaitForSeconds(blink);
 				duration -= blink;
 			}
-			Debug.Log("s");
 			immune = false;
 			spriteRenderer.color = Color.white;
 		}
-		StartCoroutine(TemporaryImmuneCoroutine());
+		if(immuneCoroutine != null){
+			StopCoroutine(immuneCoroutine);
+		}
+		immuneCoroutine = TemporaryImmuneCoroutine();
+		StartCoroutine(immuneCoroutine);
 	}
 	
 	public void OnRoomEnter(){
 		if(roomEnterImmune){
 			TemporaryImmune(roomEnterImmuneDuration);
 		}
+		if(roomEnterShielding){
+			shielded = true;
+		}
 	}
 
 	public void SaveValues(){
 		CharacterData data = new CharacterData();
 		data.health = health;
-		data.maxHealth = health;
+		data.maxHealth = maxHealth;
 		data.roomEnterImmune = roomEnterImmune;
+		data.contactDeath = contactDeath;
+		data.contactExplosion = contactExplosion;
+		data.vampirism = vampirism;
+		data.roomEnterShielding = roomEnterShielding;
 
 		// subcharacter stuff
+		data.attackDelay = subCharacter.attackDelay;
+		data.attackRecoil = subCharacter.attackRecoil;
+		data.attackDamage = subCharacter.attackDamage;
 		data.doubleshot = subCharacter.doubleshot;
 		data.tripleshot = subCharacter.doubleshot;
-		data.attackDamage = subCharacter.attackDamage;
+		data.homing = subCharacter.homing;
+		data.piercing = subCharacter.piercing;
+		data.explosive = subCharacter.explosive;
+		data.split = subCharacter.split;
 		Character.characterData = data;
 	}
 
-	public void loadValues(){
+	public void LoadValues(){
 		CharacterData data = Character.characterData;
 		health = data.health;
-		health = data.maxHealth;
+		maxHealth = data.maxHealth;
 		roomEnterImmune = data.roomEnterImmune;
+		contactDeath = data.contactDeath;
+		contactExplosion = data.contactExplosion;
+		vampirism = data.vampirism;
+		roomEnterShielding = data.roomEnterShielding;
 
 		// subcharacter stuff
-		subCharacter.doubleshot = data.doubleshot;
-		subCharacter.doubleshot = data.tripleshot;
+		subCharacter.attackDelay = data.attackDelay;
+		subCharacter.attackRecoil = data.attackRecoil;
 		subCharacter.attackDamage = data.attackDamage;
+		subCharacter.doubleshot = data.doubleshot;
+		subCharacter.tripleshot = data.doubleshot;
+		subCharacter.homing = data.homing;
+		subCharacter.piercing = data.piercing;
+		subCharacter.explosive = data.explosive;
+		subCharacter.split = data.split;
 	}
+
+	public void OnCollisionEnter2D(Collision2D collision){
+		if(contactDeath){
+			var enemy = collision.collider.GetComponent<Enemy>();
+			if(enemy != null){
+				enemy.Die();
+			}
+		}
+	}
+
+	public void EnemyDeath(){
+		if(vampirism && Random.value < vampirismChance){
+			health++;
+		}
+	}
+
 }

@@ -50,17 +50,29 @@ TagManager:
   - name: PropTilemap
     uniqueID: 3560670671
     locked: 0
+  - name: Door
+    uniqueID: 3746316501
+    locked: 0
   - name: ForegroundTilemap
     uniqueID: 4033834221
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ExplosionParticle
+    uniqueID: 3153275731
+    locked: 0
+  - name: Explosion
+    uniqueID: 3874410833
+    locked: 0
   - name: MainYSort
     uniqueID: 1288050297
     locked: 0
   - name: Projectile
     uniqueID: 2999334205
+    locked: 0
+  - name: MagicParticle
+    uniqueID: 2480188267
     locked: 0
   - name: SubCharacterRangeIndicator
     uniqueID: 4204238317

@@ -130,14 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2368495889632090394, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8997792568137786823, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
-      propertyPath: attackDamage
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: treasureRoom
+      value: 
+      objectReference: {fileID: 6098868296050204896, guid: e5242cd5b445d12018b556cc136080cf, type: 3}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.size
       value: 11
@@ -188,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 6098868296050204896, guid: 47963b33651d2c94fad5d0d925ede59c, type: 3}
     - target: {fileID: 8997792569347305391, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: orthographic size
-      value: 12.0625
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 8997792569347305391, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
@@ -202,6 +198,10 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.height
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8997792569536511521, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: contactExplosionPrefab
+      value: 
+      objectReference: {fileID: 3352137718826502870, guid: a73f18fbf42fea55f9d77a6fa06a94d8, type: 3}
     - target: {fileID: 8997792569566275360, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: m_Name
       value: MapSet

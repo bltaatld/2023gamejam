@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: treasureRoom
+      value: 
+      objectReference: {fileID: 6098868296050204896, guid: db0e4fa016fc4e603a673fe7543d6c90, type: 3}
+    - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: generatableRooms.Array.size
       value: 8
       objectReference: {fileID: 0}

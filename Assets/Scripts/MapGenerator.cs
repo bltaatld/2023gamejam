@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public class MapGenerator : MonoBehaviour{
 
 	public GameObject[] generatableRooms;
+	public GameObject treasureRoom;
+	public GameObject portalRoom;
 	public int randomWalkCount;
 	public int randomWalkLength;
 
@@ -17,6 +19,7 @@ public class MapGenerator : MonoBehaviour{
 
 	public void Generate(){
 		var layout = RandomWalkLayout(randomWalkCount, randomWalkLength);
+		List<Vector2Int> specialRooms = SortSpecialRooms(layout);
 
 
 		rooms = new Room[mapSize.x, mapSize.y];
@@ -27,16 +30,63 @@ public class MapGenerator : MonoBehaviour{
 				var position = new Vector2(current.x * roomGap.x, current.y * roomGap.y);
 
 				if(layout[x, y]){
-					int randomIndex = 0;
-					if(!(x == startingPosition.x && y == startingPosition.y)){
-						randomIndex = Random.Range(0, generatableRooms.Length);
+					Vector2Int currentPosition = new Vector2Int(x, y);
+
+					GameObject roomPrefab;
+					if(currentPosition == startingPosition){
+						roomPrefab = generatableRooms[0];
 					}
-					var instantiated = Instantiate(generatableRooms[randomIndex], position, Quaternion.identity, transform);
+					else if(currentPosition == specialRooms[1]){
+						roomPrefab = treasureRoom;
+					}
+					else{
+						roomPrefab = generatableRooms[Random.Range(0, generatableRooms.Length)];
+					}
+					var instantiated = Instantiate(roomPrefab, position, Quaternion.identity, transform);
 					rooms[x, y] = instantiated.GetComponent<Room>();
 				}
 			}
 		}
 		ConnectRoomDoors();
+	}
+	
+
+	private List<Vector2Int> SortSpecialRooms(bool[,] layout){
+		List<Vector2Int>[] specialRooms = new List<Vector2Int>[5];
+		for(int i = 0; i < specialRooms.Length; i++){
+			specialRooms[i] = new List<Vector2Int>();
+		}
+		for(int x = 0; x < layout.GetLength(0); x++){
+			for(int y = 0; y < layout.GetLength(1); y++){
+				if(!layout[x, y]){
+					continue;
+				}
+				if(x == startingPosition.x && y == startingPosition.y){
+					continue;
+				}
+				int entranceCount = 0;
+				if(x > 0 && layout[x - 1, y]){
+					entranceCount++;
+				}
+				if(y > 0 && layout[x, y - 1]){
+					entranceCount++;
+				}
+				if(x < layout.GetLength(0) - 1 && layout[x + 1, y]){
+					entranceCount++;
+				}
+				if(y < layout.GetLength(1) - 1 && layout[x, y + 1]){
+					entranceCount++;
+				}
+				specialRooms[entranceCount].Add(new Vector2Int(x, y));
+			}
+		}
+
+		List<Vector2Int> sortedSpecialRooms = new List<Vector2Int>();
+
+		for(int i = 0; i < specialRooms.Length; i++){
+			sortedSpecialRooms.AddRange(specialRooms[i]);
+		}
+		return sortedSpecialRooms;
 	}
 
 	private void ConnectRoomDoors(){
