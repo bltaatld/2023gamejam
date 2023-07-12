@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour{
 			if(health <= 0){
 				Die();
 			}
-			health = Mathf.Min(health, maxHealth);
+			_health = Mathf.Min(health, maxHealth);
 		}
 	}
 	private int _health;
