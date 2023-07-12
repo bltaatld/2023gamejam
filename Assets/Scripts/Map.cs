@@ -6,6 +6,8 @@ public class Map : MonoBehaviour{
 		set {
 			_focusedRoom = value;
 			targetPosition = focusedRoom.transform.position;
+			mainCharacter.OnRoomEnter();
+			CheckRoom();
 		}
 	}
 	private Vector2 originalPosition;
@@ -20,6 +22,22 @@ public class Map : MonoBehaviour{
 	private Vector2 _targetPosition;
 	public float progress;
 	public float cameraMoveDuration;
+	private MainCharacter mainCharacter;
+
+	public bool roomCleared{
+		get => _roomCleared;
+		set{
+			_roomCleared = value;
+			foreach(Door i in focusedRoom.doors){
+				if(i.targetDoor != null){
+					i.opened = roomCleared;
+				}
+			}
+		}
+	}
+	private bool _roomCleared;
+
+	private MapGenerator mapGenerator;
 
 	private void SetCameraPosition(Vector2 position){
 		Camera.main.transform.position = new Vector3(position.x, position.y, -10);
@@ -27,9 +45,36 @@ public class Map : MonoBehaviour{
 
 	private Room _focusedRoom;
 
+	void Awake(){
+		mapGenerator = GetComponent<MapGenerator>();
+	}
+	
+	void Start(){
+		mainCharacter = GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<MainCharacter>();
+		mapGenerator.Generate();
+		focusedRoom = mapGenerator.rooms[mapGenerator.startingPosition.x, mapGenerator.startingPosition.y];
+		CheckRoom();
+	}
+
 	void Update(){
 		progress += Time.deltaTime;
 		progress = Mathf.Min(progress, cameraMoveDuration);
 		SetCameraPosition(Vector2.Lerp(originalPosition, targetPosition, progress / cameraMoveDuration));
+		mainCharacter.unmovable = progress != cameraMoveDuration;
+	}
+
+	public void EnemyDeath(){
+		CheckRoom();
+	}
+
+	private void CheckRoom(){
+		var cleared = true;
+		foreach(GameObject i in GameObject.FindGameObjectsWithTag("Enemy")){
+			if(!i.GetComponent<Enemy>().dead){
+				cleared = false;
+				break;
+			}
+		}
+		roomCleared = cleared;
 	}
 }

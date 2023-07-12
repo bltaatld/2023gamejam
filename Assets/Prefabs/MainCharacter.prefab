@@ -208,9 +208,12 @@ MonoBehaviour:
   cursorMoveKeyCode: 0
   movementTargetDistance: 0
   startingHealth: 6
-  doubleshot: 0
-  tripleshot: 0
-  immuneTime: 1
+  damageImmuneDuration: 2
+  immuneIntensifyTime: 0.7
+  immuneBlinkColor: {r: 0.06541474, g: 0.2292738, b: 0.6603774, a: 0.56078434}
+  immune: 0
+  immuneBlinkInterval: 0.1
+  intenseImmuneBlinkInterval: 0.05
 --- !u!50 &21474112691750787
 Rigidbody2D:
   serializedVersion: 4

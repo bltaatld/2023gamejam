@@ -52,8 +52,9 @@ public class MeleeEnemy : Enemy
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
+        base.OnCollisionEnter2D(collision);
         if (collision.gameObject.CompareTag("MainCharacter"))
         {
             Vector2 direction = (transform.position - player.position).normalized;

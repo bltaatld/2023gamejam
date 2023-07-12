@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Animator))]
 public class MainCharacter : MoveCharacter{
@@ -14,7 +15,6 @@ public class MainCharacter : MoveCharacter{
 	public int health{
 		get => _health;
 		set{
-			Debug.Log("health set");
 			_health = value;
 			if(health <= 0){
 				Gameover();
@@ -24,17 +24,26 @@ public class MainCharacter : MoveCharacter{
 	}
 	private int _health;
 	private Animator animator;
-	private SubCharacter subCharacter;
-	public bool doubleshot;
-	public bool tripleshot;
-	public float immuneTime;
-	private float immuneTimer;
-	public bool immune => immuneTimer > immuneTime;
+	public SubCharacter subCharacter;
+	private SpriteRenderer spriteRenderer;
+
+	[Header("Immunity")]
+	public float damageImmuneDuration;
+	public float immuneIntensifyTime;
+	public Color immuneBlinkColor;
+	[HideInInspector] public bool immune;
+	[SerializeField] float immuneBlinkInterval;
+	[SerializeField] float intenseImmuneBlinkInterval;
+
+	[Header("RoomEnterImmune")]
+	public float roomEnterImmuneDuration = 5f;
+	public bool roomEnterImmune;
 
 	protected override void Awake(){
 		base.Awake();
 		animator = GetComponent<Animator>();
 		subCharacter = GameObject.FindGameObjectWithTag("SubCharacter").GetComponent<SubCharacter>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
 	void Start(){
@@ -78,8 +87,6 @@ public class MainCharacter : MoveCharacter{
 				}
 			}
 		}
-		immuneTimer -= Time.deltaTime;
-		immuneTimer = Mathf.Max(0f, immuneTimer);
 	}
 
 	public void MoveTo(Vector2 position){
@@ -89,6 +96,64 @@ public class MainCharacter : MoveCharacter{
 
 	public void Damage(int damage){
 		health -= damage;
-		immuneTimer = immuneTime;
+		TemporaryImmune(damageImmuneDuration);
+	}
+
+	public void TemporaryImmune(float duration){
+		Debug.Log(damageImmuneDuration);
+		Debug.Log(duration);
+		IEnumerator TemporaryImmuneCoroutine(){
+			immune = true;
+			Debug.Log("A");
+			bool inBlinkColor = false;
+			while(duration > 0){
+				inBlinkColor = !inBlinkColor;
+				if(inBlinkColor){
+					spriteRenderer.color = immuneBlinkColor;
+				}
+				else{
+					spriteRenderer.color = Color.white;
+				}
+
+				float blink = Mathf.Min(duration, duration <= immuneIntensifyTime ? intenseImmuneBlinkInterval : immuneBlinkInterval);
+				yield return new WaitForSeconds(blink);
+				duration -= blink;
+			}
+			Debug.Log("s");
+			immune = false;
+			spriteRenderer.color = Color.white;
+		}
+		StartCoroutine(TemporaryImmuneCoroutine());
+	}
+	
+	public void OnRoomEnter(){
+		if(roomEnterImmune){
+			TemporaryImmune(roomEnterImmuneDuration);
+		}
+	}
+
+	public void SaveValues(){
+		CharacterData data = new CharacterData();
+		data.health = health;
+		data.maxHealth = health;
+		data.roomEnterImmune = roomEnterImmune;
+
+		// subcharacter stuff
+		data.doubleshot = subCharacter.doubleshot;
+		data.tripleshot = subCharacter.doubleshot;
+		data.attackDamage = subCharacter.attackDamage;
+		Character.characterData = data;
+	}
+
+	public void loadValues(){
+		CharacterData data = Character.characterData;
+		health = data.health;
+		health = data.maxHealth;
+		roomEnterImmune = data.roomEnterImmune;
+
+		// subcharacter stuff
+		subCharacter.doubleshot = data.doubleshot;
+		subCharacter.doubleshot = data.tripleshot;
+		subCharacter.attackDamage = data.attackDamage;
 	}
 }

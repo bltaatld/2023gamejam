@@ -20,17 +20,26 @@ public class Enemy : MonoBehaviour{
 		private set;
 	}
 
+	public GameObject deathParticle;
+
 	protected virtual void Start(){
 		health = maxHealth;
 	}
-	public void Die(){
+	public virtual void Die(){
+		if(deathParticle != null){
+			Instantiate(deathParticle, transform.position, Quaternion.identity);
+		}
 		dead = true;
 		Destroy(gameObject);
+		GameObject.FindGameObjectWithTag("Map").GetComponent<Map>().EnemyDeath();
 	}
 
 	protected virtual void OnCollisionEnter2D(Collision2D collision){
 		if(collision.collider.CompareTag("MainCharacter")){
-			collision.collider.GetComponent<MainCharacter>().Damage(1);
+			var mainCharacter = collision.collider.GetComponent<MainCharacter>();
+			if(!mainCharacter.immune){
+				mainCharacter.Damage(1);
+			}
 		}
 	}
 }

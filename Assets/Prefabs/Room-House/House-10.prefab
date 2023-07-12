@@ -235,6 +235,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1447464363784297626, guid: 51eb630d1b5f1a15497d80137db4eb21, type: 3}
+      propertyPath: openedDoorSprite
+      value: 
+      objectReference: {fileID: 501283183, guid: 6f9e0895c87751e8a8559ec92ded8830, type: 3}
+    - target: {fileID: 1447464363784297626, guid: 51eb630d1b5f1a15497d80137db4eb21, type: 3}
+      propertyPath: unopenedDoorSprite
+      value: 
+      objectReference: {fileID: 940311341, guid: 6f9e0895c87751e8a8559ec92ded8830, type: 3}
     - target: {fileID: 3763357756540822550, guid: 51eb630d1b5f1a15497d80137db4eb21, type: 3}
       propertyPath: m_Name
       value: House-10

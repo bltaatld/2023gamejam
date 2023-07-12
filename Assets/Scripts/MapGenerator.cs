@@ -14,11 +14,8 @@ public class MapGenerator : MonoBehaviour{
 
 	public Room[,] rooms;
 
-	void Start(){
-		Generate();
-	}
 
-	void Generate(){
+	public void Generate(){
 		var layout = RandomWalkLayout(randomWalkCount, randomWalkLength);
 
 

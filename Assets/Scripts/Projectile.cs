@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour{
 	public bool piercing;
 	private bool hit = false;
 	public int damage;
+	public GameObject endParticle;
 
 	void Awake(){
 		rigidbody2D = GetComponent<Rigidbody2D>();
@@ -40,6 +41,7 @@ public class Projectile : MonoBehaviour{
 
 	private IEnumerator Decay(){
 		yield return new WaitForSeconds(lifetime);
+		Instantiate(endParticle, transform.position, Quaternion.identity);
 		Destroy(gameObject);
 	}
 
@@ -48,6 +50,7 @@ public class Projectile : MonoBehaviour{
 			return;
 		}
 		if(other.CompareTag("Enemy")){
+			Instantiate(endParticle, transform.position, Quaternion.identity);
 			Enemy enemy = other.GetComponent<Enemy>();
 			if(enemy.dead){
 				return;

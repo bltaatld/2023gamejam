@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class MoveCharacter : MonoBehaviour{
 	[Header("Movement")]
-	[SerializeField] float moveForce;
+	public float moveForce;
 	public Vector2 movement{
 		get;
 		private set;
@@ -19,6 +19,8 @@ public class MoveCharacter : MonoBehaviour{
 	private bool toTarget = false;
 	public float movementTargetDistance;
 
+	public bool unmovable = false;
+
 
 	protected virtual void Awake(){
 		rigidbody2D = GetComponent<Rigidbody2D>();
@@ -29,6 +31,9 @@ public class MoveCharacter : MonoBehaviour{
 	}
 
 	public void MoveLoop(){
+		if(unmovable){
+			return;
+		}
 		var movement = Vector2.zero;
 		if(Input.GetKey(cursorMoveKeyCode)){
 			 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

@@ -8,18 +8,18 @@ public class SubCharacter : MoveCharacter{
 	public float connectionPush;
 	[Header("Attack")]
 	public KeyCode attackKeyCode;
-	public float attackSemiautoDelay;
-	public float attackAutoDelay;
+	public float attackDelay;
 	public float attackRecoil;
-	public float attackDamage;
+	public int attackDamage;
 	public GameObject attackProjectile;
 	private float lastAttack;
 	public bool doubleshot;
 	public bool tripleshot;
+	public bool homing;
 
 	protected override void Awake(){
 		base.Awake();
-		lastAttack = attackAutoDelay;
+		lastAttack = attackDelay;
 	}
 
 	void Update(){
@@ -44,8 +44,8 @@ public class SubCharacter : MoveCharacter{
 
 	private void AttackLoop(){
 		lastAttack += Time.deltaTime;
-		lastAttack = Mathf.Min(lastAttack, attackAutoDelay);
-		if(Input.GetKeyDown(attackKeyCode) && lastAttack >= attackSemiautoDelay || Input.GetKey(attackKeyCode) && lastAttack >= attackAutoDelay){
+		lastAttack = Mathf.Min(lastAttack, attackDelay);
+		if(Input.GetKey(attackKeyCode) && lastAttack >= attackDelay){
 			lastAttack = 0;
 			Shoot();
 		}
@@ -80,6 +80,9 @@ public class SubCharacter : MoveCharacter{
 		instantiated.transform.right = mousePosition - (Vector2)instantiated.transform.position;
 		instantiated.transform.Rotate(0, 0, angle);
 		instantiated.transform.Translate(0, offset, 0);
+		var projectile = instantiated.GetComponent<Projectile>();
+		projectile.damage = attackDamage;
+		projectile.homing = homing;
 	}
 }
 

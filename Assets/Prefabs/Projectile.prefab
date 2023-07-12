@@ -126,6 +126,9 @@ MonoBehaviour:
   lifetime: 1
   homing: 1
   homingForce: 4500
+  piercing: 0
+  damage: 1
+  endParticle: {fileID: 4480551625138150364, guid: 6c0bf756d1f07421ea162c721b3674c2, type: 3}
 --- !u!95 &1693003577278927274
 Animator:
   serializedVersion: 5

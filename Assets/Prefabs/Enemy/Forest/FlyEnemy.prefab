@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf8808543760c64a95f9a503ab36eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
+  deathParticle: {fileID: 4480551625138150364, guid: 98dde16755c94bb958ff9f980249f3b9, type: 3}
   player: {fileID: 0}
   PlayerMove: {fileID: 0}
   rigid: {fileID: 7168060062177840577}

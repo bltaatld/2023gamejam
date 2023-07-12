@@ -21,6 +21,8 @@ public class Door : MonoBehaviour{
 	private bool _opened;
 	private SpriteRenderer spriteRenderer;
 	public Collider2D closeCollider;
+	
+	public Vector2 characterSpawnPosition => transform.position - transform.right;
 
 	public bool connected => targetDoor != null;
 
@@ -38,7 +40,7 @@ public class Door : MonoBehaviour{
 
 	public void OnTriggerEnter2D(Collider2D other){
 		if(other.CompareTag("MainCharacter")){
-			other.GetComponent<MainCharacter>().MoveTo(targetDoor.transform.position);
+			other.GetComponent<MainCharacter>().MoveTo(targetDoor.characterSpawnPosition);
 			GameObject.FindGameObjectWithTag("Map").GetComponent<Map>().focusedRoom = targetDoor.room;
 		}
 	}

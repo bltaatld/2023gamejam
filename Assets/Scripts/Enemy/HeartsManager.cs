@@ -17,7 +17,6 @@ public class HeartsManager : MonoBehaviour{
 	}
 
 	public void SetHearts(int health, int maxHealth){
-		Debug.Log(health);
 		var heartsNeeded = (maxHealth + 1) / 2;
 		var heartsAdding = heartsNeeded - hearts.Count;
 		for(int i = 0; i < heartsAdding; i++){
