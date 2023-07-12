@@ -21,5 +21,6 @@ public class CharacterData{
 }
 
 public static class Character{
+	public static bool loadDataOnLoadScene;
 	public static CharacterData characterData;
 }

@@ -36,6 +36,9 @@ public class MapGenerator : MonoBehaviour{
 					if(currentPosition == startingPosition){
 						roomPrefab = generatableRooms[0];
 					}
+					else if(currentPosition == specialRooms[0]){
+						roomPrefab = portalRoom;
+					}
 					else if(currentPosition == specialRooms[1]){
 						roomPrefab = treasureRoom;
 					}
@@ -84,6 +87,7 @@ public class MapGenerator : MonoBehaviour{
 		List<Vector2Int> sortedSpecialRooms = new List<Vector2Int>();
 
 		for(int i = 0; i < specialRooms.Length; i++){
+			ShuffleList(specialRooms[i]);
 			sortedSpecialRooms.AddRange(specialRooms[i]);
 		}
 		return sortedSpecialRooms;
@@ -107,64 +111,6 @@ public class MapGenerator : MonoBehaviour{
 			}
 		}
 	}
-	/*
-	private RoomType[,] GenerateRoomTypes(){
-
-		var layout = RandomWalkLayout(randomWalkCount, randomWalkLength);
-
-		List<Vector2Int>[] roomsByEntrance = new List<Vector2Int>[5];
-		for(int i = 0; i < roomsByEntrance.Length; i++){
-			roomsByEntrance[i] = new List<Vector2Int>();
-		}
-
-		for(int x = 0; x < layout.GetLength(0); x++){
-			for(int y = 0; y < layout.GetLength(1); y++){
-				int entrance = 0;
-				if(x > 0 && layout[x - 1, y]){
-					entrance++;
-				}
-				if(y > 0 && layout[x, y - 1]){
-					entrance++;
-				}
-				if(x < layout.GetLength(0) - 1 && layout[x + 1, y]){
-					entrance++;
-				}
-				if(y < layout.GetLength(1) - 1 && layout[x, y + 1]){
-					entrance++;
-				}
-				roomsByEntrance[entrance].Add(new Vector2Int(x, y));
-			}
-		}
-
-		List<Vector2Int> outerRooms = new List<Vector2Int>();
-
-		for(int i = 0; i < roomsByEntrance.Length; i++){
-			ShuffleList(roomsByEntrance[i]);
-			outerRooms.AddRange(roomsByEntrance[i]);
-		}
-		
-		var keyPositions = new List<Vector2Int>;
-
-		var specialRooms = new List<RoomType>();
-
-		specialRooms.Add(RoomType.Treasure);
-		specialRooms.Add(RoomType.Shop);
-		if(Random.Range(0, 5) < 3){
-			specialRooms.Add(RoomType.Pond);
-		}
-
-		RoomType[,]
-
-		for(int i = 0; i < outerRooms.Length; i ++){
-			spe
-		}
-
-		for(int i = 0; i < roomTypes.Count; i++){
-			var current = outerRooms[i];
-			roomDesignation[current.x, current.y] = roomTypes[i];
-		}
-	}
-	*/
 
 
 	private bool[,] RandomWalkLayout(int randomWalkCount, int randomWalkLength){

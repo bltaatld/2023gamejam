@@ -15,11 +15,13 @@ public class MainCharacter : MoveCharacter{
 	public int health{
 		get => _health;
 		set{
+			Debug.Log("health set to " + value);
 			_health = value;
 			if(health <= 0){
 				Gameover();
 			}
 			_health = Mathf.Min(health, maxHealth);
+			Debug.Log("health then set to " + value);
 			UpdateHealthUI();
 		}
 	}
@@ -60,11 +62,19 @@ public class MainCharacter : MoveCharacter{
 		subCharacter = GameObject.FindGameObjectWithTag("SubCharacter").GetComponent<SubCharacter>();
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		colorPulse = GetComponent<ColorPulse>();
+
 	}
 
 	void Start(){
-		maxHealth = startingHealth;
-		health = maxHealth;
+		Debug.LogWarning("AAAAAAAAAAAAAAAAAAAAA");
+		if(Character.loadDataOnLoadScene){
+			LoadValues();
+			Character.loadDataOnLoadScene = false;
+		}
+		else{
+			maxHealth = startingHealth;
+			health = maxHealth;
+		}
 		UpdateHealthUI();
 	}
 
@@ -162,8 +172,8 @@ public class MainCharacter : MoveCharacter{
 
 	public void SaveValues(){
 		CharacterData data = new CharacterData();
-		data.health = health;
 		data.maxHealth = maxHealth;
+		data.health = health;
 		data.roomEnterImmune = roomEnterImmune;
 		data.contactDeath = contactDeath;
 		data.contactExplosion = contactExplosion;
@@ -175,7 +185,7 @@ public class MainCharacter : MoveCharacter{
 		data.attackRecoil = subCharacter.attackRecoil;
 		data.attackDamage = subCharacter.attackDamage;
 		data.doubleshot = subCharacter.doubleshot;
-		data.tripleshot = subCharacter.doubleshot;
+		data.tripleshot = subCharacter.tripleshot;
 		data.homing = subCharacter.homing;
 		data.piercing = subCharacter.piercing;
 		data.explosive = subCharacter.explosive;
@@ -185,8 +195,8 @@ public class MainCharacter : MoveCharacter{
 
 	public void LoadValues(){
 		CharacterData data = Character.characterData;
-		health = data.health;
 		maxHealth = data.maxHealth;
+		health = data.health;
 		roomEnterImmune = data.roomEnterImmune;
 		contactDeath = data.contactDeath;
 		contactExplosion = data.contactExplosion;
@@ -198,7 +208,7 @@ public class MainCharacter : MoveCharacter{
 		subCharacter.attackRecoil = data.attackRecoil;
 		subCharacter.attackDamage = data.attackDamage;
 		subCharacter.doubleshot = data.doubleshot;
-		subCharacter.tripleshot = data.doubleshot;
+		subCharacter.tripleshot = data.tripleshot;
 		subCharacter.homing = data.homing;
 		subCharacter.piercing = data.piercing;
 		subCharacter.explosive = data.explosive;

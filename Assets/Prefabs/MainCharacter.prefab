@@ -113,7 +113,6 @@ GameObject:
   - component: {fileID: 21474112691750786}
   - component: {fileID: 553237259905361609}
   - component: {fileID: -3874327105054403962}
-  - component: {fileID: -4228109310808984535}
   - component: {fileID: 1631783151276446108}
   m_Layer: 6
   m_Name: MainCharacter
@@ -213,6 +212,8 @@ MonoBehaviour:
   startingHealth: 6
   subCharacter: {fileID: 0}
   contactDeath: 0
+  contactExplosion: 0
+  contactExplosionPrefab: {fileID: 0}
   vampirism: 0
   vampirismChance: 0.1
   damageImmuneDuration: 2
@@ -294,40 +295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d281ec36e7cea599841eaa0627a2737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4228109310808984535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 21474112691750808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b824571dd37a1b7b59b445e5dc41c8ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveForce: 0
-  rightKeyCode: 0
-  leftKeyCode: 0
-  upKeyCode: 0
-  downKeyCode: 0
-  cursorMoveKeyCode: 0
-  movementTargetDistance: 0
-  unmovable: 0
-  startingHealth: 0
-  subCharacter: {fileID: 0}
-  contactDeath: 0
-  vampirism: 0
-  vampirismChance: 0
-  damageImmuneDuration: 0
-  immuneIntensifyTime: 0
-  immuneBlinkColor: {r: 0, g: 0, b: 0, a: 0}
-  immune: 0
-  immuneBlinkInterval: 0
-  intenseImmuneBlinkInterval: 0
-  roomEnterShielding: 0
-  roomEnterImmuneDuration: 5
-  roomEnterImmune: 0
 --- !u!114 &1631783151276446108
 MonoBehaviour:
   m_ObjectHideFlags: 0
