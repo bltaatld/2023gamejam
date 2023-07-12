@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashEnemy : Enemy
+public class SlowlyEnemy : Enemy
 {
+    public MoveCharacter playerValue;
     public Transform player;
     public GameObject PlayerMove;
     public Rigidbody2D rigid;
@@ -12,21 +13,47 @@ public class DashEnemy : Enemy
 
     public float bounceForce = 5f;
     public float currentmoveSpeed;
+    public float playerMoveSpeed;
+    public float slowValue;
 
     public bool isHit;
-    public bool isFoundPlayer = false;
+    public bool isFoundPlayer;
+    public bool isSlow;
+
+    private void Start()
+    {
+        playerMoveSpeed = playerValue.moveForce;
+    }
 
     void FixedUpdate()
     {
-        if (Playertrigger.triggered)
-        {
-            isFoundPlayer = true;
-        }
-
-        if (isFoundPlayer)
+        if (!isHit)
         {
             Vector2 direction = (player.position - transform.position).normalized;
             rigid.AddForce(direction * currentmoveSpeed);
+        }
+
+        if (Playertrigger.triggered)
+        {
+            if (!isSlow)
+            {
+                playerValue.moveForce -= slowValue;
+                isSlow = true;
+            }
+        }
+
+        if (!Playertrigger.triggered)
+        {
+            if (isSlow)
+            {
+                playerValue.moveForce = playerMoveSpeed;
+                isSlow = false;
+            }
+        }
+
+        if (playerValue.moveForce <= 0)
+        {
+            playerValue.moveForce = 0f;
         }
     }
 
@@ -53,5 +80,4 @@ public class DashEnemy : Enemy
     {
         isFoundPlayer = false;
     }
-
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class MoveCharacter : MonoBehaviour{
 	[Header("Movement")]
-	[SerializeField] float moveForce;
+	public float moveForce;
 	public Vector2 movement{
 		get;
 		private set;

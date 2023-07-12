@@ -126,6 +126,8 @@ MonoBehaviour:
   lifetime: 1
   homing: 1
   homingForce: 4500
+  piercing: 0
+  damage: 1
 --- !u!95 &1693003577278927274
 Animator:
   serializedVersion: 5

@@ -29,8 +29,9 @@ public class BoomEnemy : Enemy
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
+        base.OnCollisionEnter2D(collision);
         if (collision.gameObject.CompareTag("MainCharacter"))
         {
             Vector2 direction = (transform.position - player.position).normalized;
@@ -38,6 +39,7 @@ public class BoomEnemy : Enemy
             isHit = true;
         }
     }
+
     private void Update()
     {
         Invoke("Boom", 0.2f * Time.deltaTime);
