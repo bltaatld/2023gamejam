@@ -39,6 +39,7 @@ public class BoomEnemy : Enemy
             isHit = true;
         }
     }
+
     private void Update()
     {
         Invoke("Boom", 0.2f * Time.deltaTime);

@@ -9,7 +9,8 @@ public class MeleeEnemy : Enemy
     public Rigidbody2D rigid;
     public Animator anim;
 
-    [SerializeField] TriggerTracker Playertrigger;
+    [SerializeField] TriggerTracker PlayerTrigger;
+    [SerializeField] TriggerTracker AttackTrigger;
 
     public float bounceForce = 5f;
     public float currentmoveSpeed;
@@ -27,7 +28,7 @@ public class MeleeEnemy : Enemy
             rigid.AddForce(direction * currentmoveSpeed);
         }
 
-        if (Playertrigger.triggered)
+        if (PlayerTrigger.triggered)
         {
             AttackTime += Time.deltaTime;
 
@@ -35,6 +36,15 @@ public class MeleeEnemy : Enemy
             {
                 anim.SetTrigger("IsAttack");
                 AttackTime = 0f;
+            }
+        }
+
+        if (AttackTrigger.triggered)
+        {
+            if (!isFoundPlayer)
+            {
+                PlayerMove.GetComponent<MainCharacter>().Damage(1);
+                isFoundPlayer = true;
             }
         }
 
@@ -51,6 +61,10 @@ public class MeleeEnemy : Enemy
         }
     }
 
+    public void CheckReset()
+    {
+        isFoundPlayer = false;
+    }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
@@ -69,10 +83,5 @@ public class MeleeEnemy : Enemy
         {
             isHit = false;
         }
-    }
-
-    private void OnDisable()
-    {
-        isFoundPlayer = false;
     }
 }
