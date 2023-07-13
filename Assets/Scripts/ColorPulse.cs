@@ -12,7 +12,6 @@ public class ColorPulse : MonoBehaviour{
 		color = Color.white;
 	}
 	public void Pulse(Color color, float duration){
-		Debug.Log("dfefefefefefefef");
 		progress = 0;
 		this.color = color;
 		this.duration = duration;

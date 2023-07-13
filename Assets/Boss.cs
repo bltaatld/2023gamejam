@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Boss : Enemy
 {
@@ -26,6 +27,10 @@ public class Boss : Enemy
     private void OnDisable()
     {
         bossBar.gameObject.SetActive(false);
+    }
+
+    public override void Die(){
+        SceneManager.LoadScene("Ending");
     }
 
     private void Update()

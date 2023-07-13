@@ -184,6 +184,7 @@ public class MainCharacter : MoveCharacter{
 	}
 
 	public void SaveValues(){
+		Debug.Log("AAA");
 		CharacterData data = new CharacterData();
 		data.maxHealth = maxHealth;
 		data.health = health;
@@ -208,6 +209,7 @@ public class MainCharacter : MoveCharacter{
 	}
 
 	public void LoadValues(){
+		Debug.Log("EEE");
 		CharacterData data = Character.characterData;
 		maxHealth = data.maxHealth;
 		health = data.health;

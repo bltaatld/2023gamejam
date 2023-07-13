@@ -51,6 +51,9 @@ TagManager:
   - name: PropTilemap
     uniqueID: 3560670671
     locked: 0
+  - name: Tutorial
+    uniqueID: 3689719895
+    locked: 0
   - name: Door
     uniqueID: 3746316501
     locked: 0
@@ -80,4 +83,7 @@ TagManager:
     locked: 0
   - name: SubCharacter
     uniqueID: 3009658805
+    locked: 0
+  - name: Boss
+    uniqueID: 2642365931
     locked: 0
