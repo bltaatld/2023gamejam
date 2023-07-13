@@ -209,11 +209,12 @@ MonoBehaviour:
   cursorMoveKeyCode: 0
   movementTargetDistance: 0
   unmovable: 0
+  coinText: {fileID: 0}
   startingHealth: 6
   subCharacter: {fileID: 0}
   contactDeath: 0
   contactExplosion: 0
-  contactExplosionPrefab: {fileID: 0}
+  contactExplosionPrefab: {fileID: 3352137718826502870, guid: a73f18fbf42fea55f9d77a6fa06a94d8, type: 3}
   vampirism: 0
   vampirismChance: 0.1
   damageImmuneDuration: 2

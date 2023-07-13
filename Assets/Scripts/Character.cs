@@ -24,4 +24,14 @@ public class CharacterData{
 public static class Character{
 	public static bool loadDataOnLoadScene;
 	public static CharacterData characterData;
+
+	public static GameObject coinPrefab{
+		get{
+			if(_coinPrefab == null){
+				_coinPrefab = Resources.Load<GameObject>("Coin");
+			}
+			return _coinPrefab;
+		}
+	}
+	private static GameObject _coinPrefab;
 }

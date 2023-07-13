@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  minCoins: 0
+  maxCoins: 2
   deathParticle: {fileID: 0}
   player: {fileID: 0}
   PlayerMove: {fileID: 0}

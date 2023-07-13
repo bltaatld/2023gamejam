@@ -10,7 +10,10 @@ public class CoinBullet : MonoBehaviour
     {
         if (collision.CompareTag("MainCharacter"))
         {
-            collision.gameObject.GetComponent<MainCharacter>().Damage(1);
+            var mainCharacter = collision.gameObject.GetComponent<MainCharacter>();
+            if(!mainCharacter.immune){
+                mainCharacter.Damage(1);
+            }
             Instantiate(Effect);
             Destroy(gameObject);  
         }

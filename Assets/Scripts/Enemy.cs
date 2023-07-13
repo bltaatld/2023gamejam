@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour{
 		private set;
 	}
 
+	public int minCoins;
+	public int maxCoins;
+
 	public GameObject deathParticle;
 
 	protected virtual void Start(){
@@ -33,6 +36,14 @@ public class Enemy : MonoBehaviour{
 		Destroy(gameObject);
 		GameObject.FindGameObjectWithTag("Map").GetComponent<Map>().EnemyDeath();
 		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<MainCharacter>().EnemyDeath();
+
+		int coinCount = Random.Range(minCoins, maxCoins + 1);
+
+		for(int i = 0; i < coinCount; i++){
+			Instantiate(Character.coinPrefab, (Vector2)transform.position + Random.insideUnitCircle * 0.5f, Quaternion.identity);
+		}
+
+		
 	}
 
 	protected virtual void OnCollisionEnter2D(Collision2D collision){

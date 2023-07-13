@@ -10,6 +10,7 @@ TagManager:
   - Hearts
   - Enemy
   - CharacterProjectile
+  - Coin
   layers:
   - Default
   - TransparentFX
