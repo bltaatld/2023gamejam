@@ -17,6 +17,7 @@ public class Boss1 : Enemy
     public float actionTimer = 0f;   // 동작 타이머
     public float actionInterval = 3f; // 동작 간격 시간
     public int damage;
+    public GameObject portal;
 
     public bool isFoundPlayer;
 
@@ -33,7 +34,8 @@ public class Boss1 : Enemy
 
     public override void Die()
     {
-        SceneManager.LoadScene("Ending");
+        base.Die();
+        Instantiate(portal);
     }
 
     private void Update()

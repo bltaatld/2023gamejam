@@ -44,8 +44,10 @@ public class Enemy : MonoBehaviour{
 		}
 		dead = true;
 		Destroy(gameObject);
-		if(GameObject.FindGameObjectWithTag("Map").GetComponent<Map>() != null){
-			GameObject.FindGameObjectWithTag("Map").GetComponent<Map>().EnemyDeath();
+		if(GameObject.FindGameObjectWithTag("Map") != null){
+			if(GameObject.FindGameObjectWithTag("Map").GetComponent<Map>() != null){
+				GameObject.FindGameObjectWithTag("Map").GetComponent<Map>().EnemyDeath();
+			}
 		}
 		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<MainCharacter>().EnemyDeath();
 

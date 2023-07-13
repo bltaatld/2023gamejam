@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 76996881}
   - component: {fileID: 76996884}
   - component: {fileID: 76996885}
+  - component: {fileID: 76996886}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -420,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d39507df5ce5e4ca67e57e30821a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 10
   minCoins: 0
   maxCoins: 0
   deathParticle: {fileID: 4480551625138150364, guid: 98dde16755c94bb958ff9f980249f3b9, type: 3}
@@ -434,7 +435,34 @@ MonoBehaviour:
   actionTimer: 1
   actionInterval: 3
   damage: 3
+  portal: {fileID: 1139177973403475835, guid: e135883938ee005669ecc4d1a3211a39, type: 3}
   isFoundPlayer: 0
+--- !u!61 &76996886
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76996878}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.8125, y: 4.5}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.8125, y: 4.5}
+  m_EdgeRadius: 0
 --- !u!1 &331903216
 GameObject:
   m_ObjectHideFlags: 0
