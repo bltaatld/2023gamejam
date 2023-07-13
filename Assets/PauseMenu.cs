@@ -28,4 +28,8 @@ public class PauseMenu : MonoBehaviour{
 			paused = !paused;
 		}
 	}
+
+	public void Resume(){
+		paused = false;
+	}
 }
