@@ -256,6 +256,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 485648126250470526, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 281140748e6ef4d43a015b21f7ff5b60, type: 2}
+    - target: {fileID: 485648126250470526, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2488940173606208392, guid: 281140748e6ef4d43a015b21f7ff5b60, type: 2}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: shopRoom
       value: 
