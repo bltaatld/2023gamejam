@@ -765,6 +765,10 @@ PrefabInstance:
       value: ExplodeEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 5495970045085692258, guid: 5ee4d2e5832cdbd488b4f9142178f70c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5495970045085692258, guid: 5ee4d2e5832cdbd488b4f9142178f70c, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}

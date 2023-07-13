@@ -192,6 +192,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 485648126250470526, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485648126250470526, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: m_margin.y
+      value: 0.6940612
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928677469386102468, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922693683953658798, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922693683953658798, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: shopRoom
       value: 

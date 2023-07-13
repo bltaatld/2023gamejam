@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 507451370302082174}
   - component: {fileID: 887507550792423229}
   - component: {fileID: -681772801685531040}
+  - component: {fileID: 4246348515981323361}
   m_Layer: 0
   m_Name: SummonEnemy
   m_TagString: Enemy
@@ -198,7 +199,7 @@ MonoBehaviour:
   sprite: {fileID: 201028957}
   bounceForce: 5
   currentmoveSpeed: 1
-  instantiateDelay: 5
+  instantiateDelay: 3.5
   spawnRadius: 2
   isHit: 0
   isFoundPlayer: 0
@@ -281,5 +282,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d281ec36e7cea599841eaa0627a2737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4246348515981323361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507451370302082171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5b32ad47bfb0f6c9057be9d0973486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

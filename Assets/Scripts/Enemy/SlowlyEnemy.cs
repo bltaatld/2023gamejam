@@ -81,8 +81,9 @@ public class SlowlyEnemy : Enemy
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
+        playerValue.moveForce = playerMoveSpeed;
         isSlow = false;
         isFoundPlayer = false;
     }

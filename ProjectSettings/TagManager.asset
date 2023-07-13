@@ -45,6 +45,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: InfiniteBackground
+    uniqueID: 2911167313
+    locked: 0
   - name: BackgroundTilemap
     uniqueID: 3862931115
     locked: 0
