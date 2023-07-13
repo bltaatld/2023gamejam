@@ -212,7 +212,7 @@ MonoBehaviour:
   deathParticle: {fileID: 4480551625138150364, guid: 98dde16755c94bb958ff9f980249f3b9, type: 3}
   player: {fileID: 0}
   PlayerMove: {fileID: 0}
-  prefabToInstantiate: {fileID: 0}
+  prefabToInstantiate: {fileID: 8533670931965347430, guid: f22167186d2de4646b5e3232ad774197, type: 3}
   sprite: {fileID: 1379684141}
   rigid: {fileID: 791872494}
   bounceForce: 0.5

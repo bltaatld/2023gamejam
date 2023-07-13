@@ -62,6 +62,11 @@ public class Boss : Enemy
        isFoundPlayer = false;
     }
 
+    public void SmashSoundPlay()
+    {
+        AudioManager.instance.PlaySound(6);
+    }
+
     IEnumerator PerformAction(int action)
     {
         switch (action)
