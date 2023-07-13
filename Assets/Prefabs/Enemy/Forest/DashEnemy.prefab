@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3039721359745961718}
   - component: {fileID: 3039721359745961719}
   - component: {fileID: 3039721359745961722}
+  - component: {fileID: 1396305847409856847}
   m_Layer: 0
   m_Name: DashEnemy
   m_TagString: Enemy
@@ -152,12 +153,33 @@ MonoBehaviour:
   player: {fileID: 0}
   PlayerMove: {fileID: 0}
   rigid: {fileID: 3039721359745961718}
-  anim: {fileID: 0}
+  anim: {fileID: 1396305847409856847}
   Playertrigger: {fileID: 3039721360511263340}
   bounceForce: 10
   currentmoveSpeed: 15
   isHit: 0
   isFoundPlayer: 0
+--- !u!95 &1396305847409856847
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039721359745961713}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9e481a7d208e284b8feaac9a9884ad3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3039721360511263343
 GameObject:
   m_ObjectHideFlags: 0
