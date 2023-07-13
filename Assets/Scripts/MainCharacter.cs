@@ -3,6 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(Animator))]
 public class MainCharacter : MoveCharacter{
+	public int coin;
 	public int startingHealth;
 	public int maxHealth{
 		get => _maxHealth;
@@ -179,6 +180,7 @@ public class MainCharacter : MoveCharacter{
 		data.contactExplosion = contactExplosion;
 		data.vampirism = vampirism;
 		data.roomEnterShielding = roomEnterShielding;
+		data.coin = coin;
 
 		// subcharacter stuff
 		data.attackDelay = subCharacter.attackDelay;
@@ -202,6 +204,7 @@ public class MainCharacter : MoveCharacter{
 		contactExplosion = data.contactExplosion;
 		vampirism = data.vampirism;
 		roomEnterShielding = data.roomEnterShielding;
+		coin = data.coin;
 
 		// subcharacter stuff
 		subCharacter.attackDelay = data.attackDelay;
