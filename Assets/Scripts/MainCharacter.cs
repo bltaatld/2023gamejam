@@ -1,9 +1,18 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 [RequireComponent(typeof(Animator))]
 public class MainCharacter : MoveCharacter{
-	public int coin;
+	public int coin{
+		get => _coin;
+		set{
+			_coin = value;
+			UpdateCoinUI();
+		}
+	}
+	public TextMeshProUGUI coinText;
+	private int _coin;
 	public int startingHealth;
 	public int maxHealth{
 		get => _maxHealth;
@@ -75,6 +84,7 @@ public class MainCharacter : MoveCharacter{
 			maxHealth = startingHealth;
 			health = maxHealth;
 		}
+		UpdateCoinUI();
 		UpdateHealthUI();
 	}
 
@@ -88,6 +98,10 @@ public class MainCharacter : MoveCharacter{
 
 	private void UpdateHealthUI(){
 		GameObject.FindGameObjectWithTag("Hearts").GetComponent<HeartsManager>().SetHearts(health, maxHealth);
+	}
+
+	private void UpdateCoinUI(){
+		coinText.text = coin.ToString();
 	}
 
 	void Update(){
@@ -223,6 +237,14 @@ public class MainCharacter : MoveCharacter{
 			if(enemy != null){
 				enemy.Die();
 			}
+		}
+	}
+
+	public void OnTriggerEnter2D(Collider2D other){
+		if(other.CompareTag("Coin")){
+			Destroy(other.gameObject);
+			coin++;
+			return;
 		}
 	}
 
