@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7420985464774075932}
   - component: {fileID: 7420985464774075934}
   - component: {fileID: 7420985464774075933}
+  - component: {fileID: -6503086360913047506}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Enemy
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1288050297
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1634128922, guid: 5b2bda5b467b04e4cbc836387f0fc7a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -184,3 +185,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1825236, y: 1.0657411}
   m_EdgeRadius: 0
+--- !u!114 &-6503086360913047506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420985464774075928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d281ec36e7cea599841eaa0627a2737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

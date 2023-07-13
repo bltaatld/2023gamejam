@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9052658992162896114}
   - component: {fileID: 9052658992162896141}
   - component: {fileID: 9052658992162896140}
+  - component: {fileID: 2144291003361351652}
   m_Layer: 0
   m_Name: ShootEnemy
   m_TagString: Enemy
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1288050297
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 161ed7c7a94029e4fb3f612ace71f0c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -160,7 +161,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &9052658992162896140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -187,3 +188,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3835807, y: 2.1309574}
   m_EdgeRadius: 0
+--- !u!114 &2144291003361351652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9052658992162896118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d281ec36e7cea599841eaa0627a2737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3025703523938264793}
   - component: {fileID: 3025703523938264790}
   - component: {fileID: 3025703523938264791}
+  - component: {fileID: 2778326759517141427}
   m_Layer: 0
   m_Name: ThrowEnemy
   m_TagString: Enemy
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1288050297
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f60abbedce3431346b3897898f619bff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -181,3 +182,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2778326759517141427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3025703523938264797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d281ec36e7cea599841eaa0627a2737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

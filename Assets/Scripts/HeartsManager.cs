@@ -14,7 +14,6 @@ public class HeartsManager : MonoBehaviour{
 	
 
 	public void SetHearts(int health, int maxHealth){
-		Debug.Log(health + " " + maxHealth);
 		if(hearts == null){
 			hearts = new List<Image>();
 		}
@@ -30,11 +29,9 @@ public class HeartsManager : MonoBehaviour{
 			Sprite sprite = null;
 			if((i+1) * 2 <= health){
 				sprite = fullHeartSprite;
-				Debug.Log("Full");
 			}
 			else if((i+1) * 2 - 1 == health){
 				sprite = halfHeartSprite;
-				Debug.Log("Half");
 			}
 			else if(i < heartsNeeded){
 				sprite = emptyHeartSprite;

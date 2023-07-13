@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 443341566501158328}
   - component: {fileID: 791872494}
   - component: {fileID: 791872496}
+  - component: {fileID: 4310696094272262234}
   m_Layer: 0
   m_Name: ReAnimateEnemy
   m_TagString: Enemy
@@ -159,8 +160,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1288050297
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -563217093, guid: 7a79ee633e93b9f4da508da518676b1b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -239,7 +240,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &791872496
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -266,3 +267,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &4310696094272262234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533670931965347430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d281ec36e7cea599841eaa0627a2737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

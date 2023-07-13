@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e8802672e64895acf911fff731f8c14f
   - enabled: 1
+    path: Assets/Scenes/Gameover.unity
+    guid: a32fa557aa48d8c22a1ca592003abb72
+  - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: 1766856e1661ef64fa57a966346aed86
   - enabled: 1
@@ -21,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Indoors.unity
     guid: b9b3c761dfcb020c5b3206b0237c3f1d
   - enabled: 1
-    path: Assets/Scenes/Gameover.unity
-    guid: a32fa557aa48d8c22a1ca592003abb72
+    path: Assets/Scenes/BossScene.unity
+    guid: 278297b8e17084c4f93622ae671d244f
   m_configObjects: {}

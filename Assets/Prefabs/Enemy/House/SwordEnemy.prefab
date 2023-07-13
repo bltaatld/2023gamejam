@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 4054406961085834558}
   - component: {fileID: 4054406961085834559}
   - component: {fileID: 4054406961085834556}
+  - component: {fileID: -9091895565130900920}
   m_Layer: 0
   m_Name: SwordEnemy
   m_TagString: Enemy
@@ -437,3 +438,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1857316, y: 1.419648}
   m_EdgeRadius: 0
+--- !u!114 &-9091895565130900920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4054406961085834554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d281ec36e7cea599841eaa0627a2737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

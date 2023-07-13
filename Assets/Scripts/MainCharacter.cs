@@ -26,13 +26,11 @@ public class MainCharacter : MoveCharacter{
 	public int health{
 		get => _health;
 		set{
-			Debug.Log("health set to " + value);
 			_health = value;
 			if(health <= 0){
 				Gameover();
 			}
 			_health = Mathf.Min(health, maxHealth);
-			Debug.Log("health then set to " + value);
 			UpdateHealthUI();
 		}
 	}
@@ -94,7 +92,7 @@ public class MainCharacter : MoveCharacter{
 	}
 
 	void Gameover(){
-		SceneManager.LoadScene("MainMenu");
+		SceneManager.LoadScene("Gameover");
 	}
 
 	private void UpdateHealthUI(){
