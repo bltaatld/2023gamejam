@@ -55,6 +55,7 @@ public class SubCharacter : MoveCharacter{
 	}
 
 	private void Shoot(){
+		AudioManager.instance.PlaySound(7);
 		DoubleShootDirection(0f);
 		if(tripleshot){
 			DoubleShootDirection(-15f);
