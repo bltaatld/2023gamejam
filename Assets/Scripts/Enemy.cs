@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour{
 		dead = true;
 		Destroy(gameObject);
 		GameObject.FindGameObjectWithTag("Map").GetComponent<Map>().EnemyDeath();
+		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<MainCharacter>().EnemyDeath();
 	}
 
 	protected virtual void OnCollisionEnter2D(Collision2D collision){

@@ -48,6 +48,37 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1 &2639166669397831396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4756221382484266370}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4756221382484266370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2639166669397831396}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5698644358355531046}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3763357756540822550
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +111,7 @@ Transform:
   - {fileID: 4393714680617655806}
   - {fileID: 5577156121423054309}
   - {fileID: 2183495198992570954}
+  - {fileID: 4756221382484266370}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -102,6 +134,7 @@ MonoBehaviour:
   doors: []
   unopenedDoorSprite: {fileID: -1073784632, guid: 583585adbcd076d0aa2f12664e69b473, type: 3}
   openedDoorSprite: {fileID: 448165276, guid: 583585adbcd076d0aa2f12664e69b473, type: 3}
+  enemies: {fileID: 2639166669397831396}
 --- !u!1 &5257029926408009706
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4325331461782845977, guid: ae2624d39090b447581cd98f20347533, type: 3}
       propertyPath: m_SortingLayer
-      value: -2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4325331461782845977, guid: ae2624d39090b447581cd98f20347533, type: 3}
       propertyPath: m_SortingLayerID
@@ -4742,7 +4775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4325331461782845977, guid: ae2624d39090b447581cd98f20347533, type: 3}
       propertyPath: m_SortingLayer
-      value: -3
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4325331461782845977, guid: ae2624d39090b447581cd98f20347533, type: 3}
       propertyPath: m_SortingLayerID
@@ -5539,7 +5572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4325331461782845977, guid: ae2624d39090b447581cd98f20347533, type: 3}
       propertyPath: m_SortingLayer
-      value: -2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4325331461782845977, guid: ae2624d39090b447581cd98f20347533, type: 3}
       propertyPath: m_SortingOrder

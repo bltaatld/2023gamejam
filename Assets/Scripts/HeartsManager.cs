@@ -12,25 +12,29 @@ public class HeartsManager : MonoBehaviour{
 	public int heartGap;
 	public int heartBelow;
 	
-	void Awake(){
-		hearts = new List<Image>();
-	}
 
 	public void SetHearts(int health, int maxHealth){
-		var heartsNeeded = (maxHealth + 1) / 2;
+		Debug.Log(health + " " + maxHealth);
+		if(hearts == null){
+			hearts = new List<Image>();
+		}
+		var heartsNeeded = maxHealth / 2;
 		var heartsAdding = heartsNeeded - hearts.Count;
 		for(int i = 0; i < heartsAdding; i++){
 			var instantiated = Instantiate(heartPrefab, transform);
 			hearts.Add(instantiated.GetComponent<Image>());
 			instantiated.transform.localPosition = new Vector2(heartGap * hearts.Count, -heartBelow);
 		}
+
 		for(int i = 0; i < hearts.Count; i++){
 			Sprite sprite = null;
-			if(i * 2 + 1 < health){
+			if((i+1) * 2 <= health){
 				sprite = fullHeartSprite;
+				Debug.Log("Full");
 			}
-			else if(i * 2 + 1 == health){
+			else if((i+1) * 2 - 1 == health){
 				sprite = halfHeartSprite;
+				Debug.Log("Half");
 			}
 			else if(i < heartsNeeded){
 				sprite = emptyHeartSprite;

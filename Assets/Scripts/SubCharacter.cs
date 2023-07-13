@@ -16,6 +16,9 @@ public class SubCharacter : MoveCharacter{
 	public bool doubleshot;
 	public bool tripleshot;
 	public bool homing;
+	public bool piercing;
+	public bool explosive;
+	public bool split;
 
 	protected override void Awake(){
 		base.Awake();
@@ -83,6 +86,9 @@ public class SubCharacter : MoveCharacter{
 		var projectile = instantiated.GetComponent<Projectile>();
 		projectile.damage = attackDamage;
 		projectile.homing = homing;
+		projectile.piercing = piercing;
+		projectile.explosive = explosive;
+		projectile.split = split;
 	}
 }
 

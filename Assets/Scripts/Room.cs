@@ -11,6 +11,8 @@ public class Room : MonoBehaviour{
 	public Sprite unopenedDoorSprite;
 	public Sprite openedDoorSprite;
 
+	public GameObject enemies;
+
 
 	void Awake(){
 		doors = new Door[4];

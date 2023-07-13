@@ -14,6 +14,10 @@ public class Projectile : MonoBehaviour{
 	private bool hit = false;
 	public int damage;
 	public GameObject endParticle;
+	public GameObject explosion;
+	public bool explosive;
+	public GameObject splitProjectile;
+	public bool split;
 
 	void Awake(){
 		rigidbody2D = GetComponent<Rigidbody2D>();
@@ -50,6 +54,17 @@ public class Projectile : MonoBehaviour{
 			return;
 		}
 		if(other.CompareTag("Enemy")){
+			if(explosive){
+				Instantiate(explosion, transform.position, Quaternion.identity);
+			}
+			if(split){
+				float[] rotationAngles = {45, -45, 135, -135};
+				foreach(float i in rotationAngles){
+					var instantiated = Instantiate(splitProjectile, transform.position, transform.rotation);
+					instantiated.transform.Rotate(0, 0, i);
+					instantiated.GetComponent<Projectile>().split = false;
+				}
+			}
 			Instantiate(endParticle, transform.position, Quaternion.identity);
 			Enemy enemy = other.GetComponent<Enemy>();
 			if(enemy.dead){

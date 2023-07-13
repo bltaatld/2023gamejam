@@ -4,6 +4,7 @@ public class Map : MonoBehaviour{
 	public Room focusedRoom{
 		get => _focusedRoom;
 		set {
+			roomMove = true;
 			_focusedRoom = value;
 			targetPosition = focusedRoom.transform.position;
 			mainCharacter.OnRoomEnter();
@@ -37,6 +38,8 @@ public class Map : MonoBehaviour{
 	}
 	private bool _roomCleared;
 
+	private bool roomMove;
+
 	private MapGenerator mapGenerator;
 
 	private void SetCameraPosition(Vector2 position){
@@ -61,6 +64,11 @@ public class Map : MonoBehaviour{
 		progress = Mathf.Min(progress, cameraMoveDuration);
 		SetCameraPosition(Vector2.Lerp(originalPosition, targetPosition, progress / cameraMoveDuration));
 		mainCharacter.unmovable = progress != cameraMoveDuration;
+		if(roomMove && progress == cameraMoveDuration){
+			focusedRoom.enemies.SetActive(true);
+			roomMove = false;
+			CheckRoom();
+		}
 	}
 
 	public void EnemyDeath(){
