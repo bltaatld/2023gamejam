@@ -74,4 +74,9 @@ public class ReAnimateEnemy : Enemy
             Instantiate(prefabToInstantiate, transform.position, Quaternion.identity);
         }
     }
+
+    public void RespawnSoundPlay()
+    {
+        AudioManager.instance.PlaySound(5);
+    }
 }

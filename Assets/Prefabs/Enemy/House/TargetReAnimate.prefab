@@ -207,6 +207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 7
+  minCoins: 0
+  maxCoins: 0
   deathParticle: {fileID: 4480551625138150364, guid: 98dde16755c94bb958ff9f980249f3b9, type: 3}
   player: {fileID: 0}
   PlayerMove: {fileID: 0}
@@ -214,7 +216,7 @@ MonoBehaviour:
   sprite: {fileID: 1379684141}
   rigid: {fileID: 791872494}
   bounceForce: 0.5
-  currentmoveSpeed: 2
+  currentmoveSpeed: 4
   isHit: 0
   isFoundPlayer: 0
 --- !u!50 &791872494
