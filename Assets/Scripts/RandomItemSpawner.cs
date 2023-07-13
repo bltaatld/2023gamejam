@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomItemSpawner : MonoBehaviour{
 	public GameObject[] items;
 
-	void Start(){
-		Instantiate(items[Random.Range(0, items.Length)], transform.position, transform.rotation);
+	void Awake(){
+		Instantiate(items[Random.Range(0, items.Length)], transform.position, transform.rotation, transform);
 	}
 }

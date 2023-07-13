@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
+      propertyPath: shopRoom
+      value: 
+      objectReference: {fileID: 6098868296050204896, guid: 681bc863f5514d7fcb1567dd815f76de, type: 3}
+    - target: {fileID: 8997792568887183186, guid: 5bb5c5ef19ac154a4819819a3b426e28, type: 3}
       propertyPath: portalRoom
       value: 
       objectReference: {fileID: 6098868296050204896, guid: 63fcf0320ca79ef62a4c5325209c02a1, type: 3}

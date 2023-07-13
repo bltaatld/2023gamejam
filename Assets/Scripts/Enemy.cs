@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour{
 		int coinCount = Random.Range(minCoins, maxCoins + 1);
 
 		for(int i = 0; i < coinCount; i++){
-			Instantiate(Character.coinPrefab, (Vector2)transform.position + Random.insideUnitCircle * 0.5f, Quaternion.identity);
+			Instantiate(Character.coinPrefab, (Vector2)transform.position + Random.insideUnitCircle * 0.2f, Quaternion.identity);
 		}
 
 		

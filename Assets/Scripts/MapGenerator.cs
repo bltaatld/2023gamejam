@@ -6,6 +6,7 @@ public class MapGenerator : MonoBehaviour{
 	public GameObject[] generatableRooms;
 	public GameObject treasureRoom;
 	public GameObject portalRoom;
+	public GameObject shopRoom;
 	public int randomWalkCount;
 	public int randomWalkLength;
 
@@ -41,6 +42,9 @@ public class MapGenerator : MonoBehaviour{
 					}
 					else if(currentPosition == specialRooms[1]){
 						roomPrefab = treasureRoom;
+					}
+					else if(currentPosition == specialRooms[2]){
+						roomPrefab = shopRoom;
 					}
 					else{
 						roomPrefab = generatableRooms[Random.Range(0, generatableRooms.Length)];
