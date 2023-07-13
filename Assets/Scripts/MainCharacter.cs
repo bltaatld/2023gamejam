@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Animator))]
 public class MainCharacter : MoveCharacter{
@@ -93,7 +94,7 @@ public class MainCharacter : MoveCharacter{
 	}
 
 	void Gameover(){
-		Debug.Log("Gameover");
+		SceneManager.LoadScene("MainMenu");
 	}
 
 	private void UpdateHealthUI(){
