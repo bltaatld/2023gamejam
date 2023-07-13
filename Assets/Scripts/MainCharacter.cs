@@ -242,6 +242,7 @@ public class MainCharacter : MoveCharacter{
 
 	public void OnTriggerEnter2D(Collider2D other){
 		if(other.CompareTag("Coin")){
+			AudioManager.instance.PlaySound(1);
 			Destroy(other.gameObject);
 			coin++;
 			return;
