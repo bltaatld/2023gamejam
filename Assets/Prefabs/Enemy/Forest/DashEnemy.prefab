@@ -82,7 +82,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.18, y: 0.26}
+  m_Size: {x: 0.18, y: 0.37}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -127,7 +127,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.125, y: 2.3125}
-    newSize: {x: 0.18, y: 0.26}
+    newSize: {x: 0.18, y: 0.37}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -147,10 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb4e1e3eb9646546a8595de68411221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
+  deathParticle: {fileID: 0}
   player: {fileID: 0}
   PlayerMove: {fileID: 0}
   rigid: {fileID: 3039721359745961718}
+  anim: {fileID: 0}
   Playertrigger: {fileID: 3039721360511263340}
   bounceForce: 10
   currentmoveSpeed: 15

@@ -206,11 +206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afe5772a893a5c4db58f6f13d1ba159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 7
   deathParticle: {fileID: 4480551625138150364, guid: 98dde16755c94bb958ff9f980249f3b9, type: 3}
   player: {fileID: 0}
   PlayerMove: {fileID: 0}
-  prefabToInstantiate: {fileID: 8533670931965347430, guid: 500df0fa32c2c0944b973bc2576198cf, type: 3}
+  prefabToInstantiate: {fileID: 0}
   sprite: {fileID: 1379684141}
   rigid: {fileID: 791872494}
   bounceForce: 0.5

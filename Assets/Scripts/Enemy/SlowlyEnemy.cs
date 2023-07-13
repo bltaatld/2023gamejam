@@ -27,8 +27,6 @@ public class SlowlyEnemy : Enemy
         player = GameObject.FindGameObjectWithTag("MainCharacter").transform;
         PlayerMove = GameObject.FindGameObjectWithTag("MainCharacter").gameObject;
         playerValue = GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<MoveCharacter>();
-
-        playerMoveSpeed = playerValue.moveForce;
     }
 
     void FixedUpdate()
@@ -43,6 +41,7 @@ public class SlowlyEnemy : Enemy
         {
             if (!isSlow)
             {
+                playerMoveSpeed = playerValue.moveForce;
                 playerValue.moveForce -= slowValue;
                 isSlow = true;
             }
@@ -84,6 +83,7 @@ public class SlowlyEnemy : Enemy
 
     private void OnDisable()
     {
+        isSlow = false;
         isFoundPlayer = false;
     }
 }
