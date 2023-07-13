@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa1f626582213b49be59996b621addc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 5
   deathParticle: {fileID: 4480551625138150364, guid: 98dde16755c94bb958ff9f980249f3b9, type: 3}
   player: {fileID: 0}
   PlayerMove: {fileID: 0}
@@ -108,7 +108,7 @@ MonoBehaviour:
   bounceForce: 0.5
   currentmoveSpeed: 3
   BoomCount: 0
-  MaxBoomCount: 100
+  MaxBoomCount: 500
   isHit: 0
   isFoundPlayer: 0
   anim: {fileID: 5495970045085692262}

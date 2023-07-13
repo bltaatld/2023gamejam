@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14236455df8631e419d1b167f0325714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 5
   deathParticle: {fileID: 4480551625138150364, guid: 98dde16755c94bb958ff9f980249f3b9, type: 3}
   player: {fileID: 0}
   PlayerMove: {fileID: 0}
@@ -196,7 +196,7 @@ MonoBehaviour:
   bounceForce: 5
   currentmoveSpeed: 1
   instantiateDelay: 5
-  spawnRadius: 1.5
+  spawnRadius: 2
   isHit: 0
   isFoundPlayer: 0
   isSlow: 0

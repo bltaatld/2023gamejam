@@ -7,6 +7,7 @@ public class DashEnemy : Enemy
     public Transform player;
     public GameObject PlayerMove;
     public Rigidbody2D rigid;
+    public Animator anim;
 
     [SerializeField] TriggerTracker Playertrigger;
 
@@ -32,8 +33,21 @@ public class DashEnemy : Enemy
 
         if (isFoundPlayer)
         {
+            anim.SetTrigger("IsDash");
             Vector2 direction = (player.position - transform.position).normalized;
             rigid.AddForce(direction * currentmoveSpeed);
+        }
+
+        // 플레이어 위치에 따라 스프라이트를 좌우로 뒤집기
+        if (player.position.x < transform.position.x)
+        {
+            // 플레이어가 상대적으로 왼쪽에 있는 경우
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            // 플레이어가 상대적으로 오른쪽에 있는 경우
+            GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
