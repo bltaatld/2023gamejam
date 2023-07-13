@@ -23,7 +23,7 @@ public class HeartsManager : MonoBehaviour{
 		for(int i = 0; i < heartsAdding; i++){
 			var instantiated = Instantiate(heartPrefab, transform);
 			hearts.Add(instantiated.GetComponent<Image>());
-			instantiated.transform.localPosition = new Vector2(heartGap * hearts.Count, -heartBelow);
+			instantiated.transform.localPosition = new Vector2(heartGap * hearts.Count - 7, -heartBelow);
 		}
 
 		for(int i = 0; i < hearts.Count; i++){
