@@ -8,11 +8,13 @@ public class Enemy : MonoBehaviour{
 	public int health {
 		get => _health;
 		set{
+			if(value < health){
+				colorPulse.Pulse(new Color(100f/255f, 190f/255f, 255f/255f), 0.5f);
+			}
 			_health = value;
 			if(health <= 0){
 				Die();
 			}
-			colorPulse.Pulse(new Color(100f/255f, 190f/255f, 255f/255f), 0.5f);
 
 			_health = Mathf.Min(health, maxHealth);
 		}
@@ -42,7 +44,9 @@ public class Enemy : MonoBehaviour{
 		}
 		dead = true;
 		Destroy(gameObject);
-		GameObject.FindGameObjectWithTag("Map").GetComponent<Map>().EnemyDeath();
+		if(GameObject.FindGameObjectWithTag("Map").GetComponent<Map>() != null){
+			GameObject.FindGameObjectWithTag("Map").GetComponent<Map>().EnemyDeath();
+		}
 		GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<MainCharacter>().EnemyDeath();
 
 		int coinCount = Random.Range(minCoins, maxCoins + 1);

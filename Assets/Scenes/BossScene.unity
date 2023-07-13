@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 76996881}
   - component: {fileID: 76996882}
   - component: {fileID: 76996883}
+  - component: {fileID: 76996884}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -257,8 +258,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1652601365
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2c33d3e6b9e471741b2c108b1f3c260b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -399,6 +400,18 @@ PolygonCollider2D:
       - {x: 0.6875, y: -1.875}
       - {x: 0.8125, y: -1.5625}
       - {x: 1.25, y: -1.9375}
+--- !u!114 &76996884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76996878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5b32ad47bfb0f6c9057be9d0973486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &331903216
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,6 +859,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331903217}
     m_Modifications:
+    - target: {fileID: 4127778670158728468, guid: 1db62d03ead0a3e8d8061574780777c5, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 4189763062319971295}
     - target: {fileID: 4127778670485597441, guid: 1db62d03ead0a3e8d8061574780777c5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1015,6 +1032,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1162880559406053260, guid: f861cf96ef11606aba6740e5675ba895, type: 3}
   m_PrefabInstance: {fileID: 4189763062319971293}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4189763062319971295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4631615216976781427, guid: f861cf96ef11606aba6740e5675ba895, type: 3}
+  m_PrefabInstance: {fileID: 4189763062319971293}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5982508663149799055
 PrefabInstance:
   m_ObjectHideFlags: 0
