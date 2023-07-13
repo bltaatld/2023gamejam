@@ -38,6 +38,7 @@ public class SpeedBuffEnemy : Enemy
 
         if (barkTime >= barkCoolDown)
         {
+            AudioManager.instance.PlaySound(0);
             anim.SetTrigger("IsBark");
             currentmoveSpeed += barkValue;
             barkTime = 0f;

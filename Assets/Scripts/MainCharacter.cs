@@ -67,7 +67,6 @@ public class MainCharacter : MoveCharacter{
 	}
 
 	void Start(){
-		Debug.LogWarning("AAAAAAAAAAAAAAAAAAAAA");
 		if(Character.loadDataOnLoadScene){
 			LoadValues();
 			Character.loadDataOnLoadScene = false;
