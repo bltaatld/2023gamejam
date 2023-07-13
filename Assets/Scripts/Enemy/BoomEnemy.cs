@@ -64,10 +64,13 @@ public class BoomEnemy : Enemy
 
     public void DisactiveObject()
     {
-        gameObject.SetActive(false);
+        base.Die();
     }
 
-
+    public void BoomSoundPlay()
+    {
+        AudioManager.instance.PlaySound(3);
+    }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
