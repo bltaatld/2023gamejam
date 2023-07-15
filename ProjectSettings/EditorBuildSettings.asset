@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Forest.unity
     guid: 1766856e1661ef64fa57a966346aed86
   - enabled: 1
+    path: Assets/Scenes/BossScene1.unity
+    guid: d06e9d1b2298b5e4fbf7855bb57f3ce4
+  - enabled: 1
     path: Assets/Scenes/Graveyard.unity
     guid: a6f418617bb22763a88b8cf48452b458
   - enabled: 1
